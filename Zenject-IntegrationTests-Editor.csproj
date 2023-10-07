@@ -12,11 +12,11 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6f541ef2-85d2-8e2e-abb2-6a4fc3d4405f}</ProjectGuid>
+    <ProjectGuid>{393be44a-bfdd-5af1-7c0e-2b55f1524dbb}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Zenject-IntegrationTests-Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -25,7 +25,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
+    <OutputPath>Temp\Bin\Debug\Zenject-IntegrationTests-Editor\</OutputPath>
     <DefineConstants>UNITY_2022_3_7;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -45,127 +45,81 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\MainMenuView.cs" />
-     <Compile Include="Assets\Scripts\Installers\Project\ProjectCommonInstaller.cs" />
-     <Compile Include="Assets\Scripts\Services\SceneLoadingService.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
-     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-     <Compile Include="Assets\Scripts\Installers\Project\ProjectMobileInstaller.cs" />
-     <Compile Include="Assets\Fonts\Script\scriptTexttest.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-     <Compile Include="Assets\Scripts\Services\GameplayInput\StandaloneGameplayInputService.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-     <Compile Include="Assets\Scripts\Installers\Gameplay\GameplayInstaller.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-     <Compile Include="Assets\Scripts\Services\AppServices.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Installers\MainMenuInstallers.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-     <Compile Include="Assets\Scripts\Services\GameplayInput\IGameplayInputService.cs" />
-     <Compile Include="Assets\Scripts\Gameplay\HeroController.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-     <Compile Include="Assets\Scripts\Installers\Project\ProjectStandaloneInstaller.cs" />
-     <Folder Include="Assets" />
-     <Folder Include="Assets\LowPolyFoodLite\Materials" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-     <Folder Include="Assets\Scripts\Services" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Sprites" />
-     <Folder Include="Assets\Settings" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <Folder Include="Assets\TextMesh Pro\Sprites" />
-     <Folder Include="Assets\Resources" />
-     <Folder Include="Assets\TextMesh Pro\Resources\Sprite Assets" />
-     <Folder Include="Assets\Scripts\Services\GameplayInput" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-     <Folder Include="Assets\Scripts\Installers\Project" />
-     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
-     <Folder Include="Assets\LowPolyFoodLite\Prefabs" />
-     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
-     <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
-     <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-     <Folder Include="Assets\LowPolyFoodLite\Models" />
-     <Folder Include="Assets\Fonts\_Scene" />
-     <Folder Include="Assets\Scenes" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-     <Folder Include="Assets\TextMesh Pro\Resources" />
-     <Folder Include="Assets\Scripts\Gameplay" />
-     <Folder Include="Assets\Fonts\UIsprite" />
-     <Folder Include="Assets\Scripts\Installers" />
-     <Folder Include="Assets\Fonts" />
-     <Folder Include="Assets\LowPolyFoodLite\Scenes" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <Folder Include="Assets\LowPolyFoodLite\Textures" />
-     <Folder Include="Assets\TextMesh Pro" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources" />
-     <Folder Include="Assets\LowPolyFoodLite" />
-     <Folder Include="Assets\Fonts\Documentation" />
-     <Folder Include="Assets\Scripts" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Materials" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-     <Folder Include="Assets\TextMesh Pro\Shaders" />
-     <None Include="Assets\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Sprite Assets" />
-     <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
-     <Folder Include="Assets\TutorialInfo\Scripts" />
-     <Folder Include="Assets\TextMesh Pro\Fonts" />
-     <Folder Include="Assets\TutorialInfo\Icons" />
-     <Folder Include="Assets\LowPolyFoodLite\Scenes\Settings" />
-     <Folder Include="Assets\Scripts\Installers\Gameplay" />
-     <Folder Include="Assets\TutorialInfo" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Prefabs" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Scenes" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Textures" />
-     <Folder Include="Assets\TextMesh Pro\Documentation" />
-     <Folder Include="Assets\Fonts\Script" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Fonts &amp; Materials" />
-     <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Color Gradient Presets" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Misc\TestMonoKernelDecoration\DelayedInitializeKernel.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\TestBindFactoryFive\TestBindFactoryFive.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponent\TestFromNewComponentOn.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\TestBindFactoryOne\TestBindFactoryOne.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromGameObject\TestFromGameObject.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromPrefabInstaller\TestFromPrefabInstaller.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromSubContainerPrefabResource\TestFromSubContainerPrefabResource.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromPrefabResource\TestFromPrefabResource.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\IntegrationTestTester\TestIntegrationTest.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Util\FixtureUtil.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromPrefab\TestFromPrefab.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Misc\TestMonoKernelDecoration\KernelDecoratorInstaller.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInHierarchy\TestFromComponentInHierarchy.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Installers\TestScriptableObjectInstallers\TestScriptableObjectInstallers.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestInstantiateCallback\TestInstantiateCallback.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestLazy\TestLazy.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromNewScriptableObjectResource\TestFromNewScriptableObjectResource.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Installers\TestInstallers\TestInstallers.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Misc\TestMonoKernelDecoration\TestMonoKernelDecoration.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\TestMemoryPools\TestMemoryPool1.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Misc\TestAnimationStateBehaviourInject\TestAnimationStateBehaviourInject.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInSiblings\TestFromComponentInSiblings.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Installers\TestMonoInstallers\TestMonoInstallers.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInChildren\TestFromComponentInChildren.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\SceneTests\TestSceneContextEvents.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromGameObjectInstaller\TestFromGameObjectInstaller.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromResource\TestFromResource.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromSubContainerPrefab\TestFromSubContainerPrefab.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInHierarchyGameObjectContext\TestFromComponentInHierarchyGameObjectContext.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponent\TestFromComponentOn.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestDiContainerMethods\TestDiContainerMethods.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Misc\TestZenAutoInjecter\TestZenAutoInjecter.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInParents\TestFromComponentInParents.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\TestBindFactory\TestBindFactory.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\PrefabFactory\TestPrefabFactory.cs" />
+     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromSiblingComponent\TestFromSiblingComponent.cs" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromPrefabInstaller" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Misc\TestMonoKernelDecoration" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInHierarchy" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\TestBindFactory" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromGameObject" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Util" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInParents" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Installers" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInChildren" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Misc\TestAnimationStateBehaviourInject" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromPrefab" />
+     <None Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Zenject-IntegrationTests-Editor.asmdef" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInHierarchyGameObjectContext" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestLazy" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromNewScriptableObjectResource" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Installers\TestScriptableObjectInstallers" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\TestBindFactoryOne" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Misc\TestZenAutoInjecter" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromResource" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\TestBindFactoryFive" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\IntegrationTestTester" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromSubContainerPrefab" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Installers\TestInstallers" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromGameObjectInstaller" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromPrefabResource" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\TestMemoryPools" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromSiblingComponent" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestDiContainerMethods" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromSubContainerPrefabResource" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponent" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Misc" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Installers\TestMonoInstallers" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestInstantiateCallback" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Bindings\TestFromComponentInSiblings" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\SceneTests" />
+     <Folder Include="Assets\Plugins\Zenject\OptionalExtras\IntegrationTests\Tests\Factories\PrefabFactory" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -418,23 +372,8 @@
      <Reference Include="Zenject-usage">
      <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
      </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
-     </Reference>
-     <Reference Include="DOTween">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
+     <Reference Include="nunit.framework">
+     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -811,126 +750,31 @@
      <Reference Include="System.Xml.Serialization">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+     <Reference Include="UnityEngine.TestRunner">
+     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     <Reference Include="UnityEditor.TestRunner">
+     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.UI">
      <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Rider.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="PPv2URPConverters">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Searcher.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.State">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VSCode.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>D:\Pets\Repo\CrossyLands\CrossyLands\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{55c4e1d2-d4eb-5a3d-5e77-d76ae7630c7e}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-Editor.csproj">
-      <Project>{a068b368-16bf-f463-d60a-7f8c897f1dc9}</Project>
-      <Name>Zenject-Editor</Name>
+    <ProjectReference Include="Zenject-TestFramework.csproj">
+      <Project>{4d729d04-916a-f4a6-34aa-1dfe75c43cfd}</Project>
+      <Name>Zenject-TestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
       <Project>{4f813a94-840e-eb7b-4634-d73766e0902a}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
-    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
-      <Project>{68bb23a1-d0f7-3324-21f7-349d64af923d}</Project>
-      <Name>Zenject-ReflectionBaking-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
-      <Project>{516cfd97-64f9-dcf2-41a8-10fca6f77746}</Project>
-      <Name>Zenject-PoolMonitor-Editor</Name>
+    <ProjectReference Include="Zenject-IntegrationTests.csproj">
+      <Project>{5ecaa7c8-bf3f-0c41-bba4-764655b78055}</Project>
+      <Name>Zenject-IntegrationTests</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
