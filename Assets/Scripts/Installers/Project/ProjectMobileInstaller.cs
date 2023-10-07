@@ -1,4 +1,6 @@
-﻿public class ProjectMobileInstaller : ProjectCommonInstaller
+﻿using Installers.Project;
+
+public class ProjectMobileInstaller : ProjectCommonInstaller
 {
     //TODO ProjectMobileInstaller
 }

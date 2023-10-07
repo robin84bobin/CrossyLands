@@ -1,12 +1,19 @@
-﻿using Zenject;
+﻿using Services;
+using Zenject;
 
-public class ProjectCommonInstaller : MonoInstaller
+namespace Installers.Project
 {
-    public override void InstallBindings()
+    public class ProjectCommonInstaller : MonoInstaller 
     {
-        //bind:
-        //data service
-        //resources service
-        //etc.
+        public override void InstallBindings()
+        {
+            //Container.BindInterfacesTo<ProjectCommonInstaller>().FromInstance(this);
+            //bind:
+            Container.Bind<ISceneLoadingService>().To<SceneLoadingService>().AsSingle().NonLazy();
+            //data service
+            //resources service
+            //etc.
+        }
+
     }
 }

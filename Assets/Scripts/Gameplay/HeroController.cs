@@ -1,6 +1,8 @@
-﻿namespace Installers.Gameplay
+﻿using UnityEngine;
+
+namespace Installers.Gameplay
 {
-    public class HeroController
+    public class HeroController : MonoBehaviour
     {
     }
 }
