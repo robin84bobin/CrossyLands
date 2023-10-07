@@ -7,7 +7,6 @@ namespace Installers.Project
     {
         public override void InstallBindings()
         {
-            //Container.BindInterfacesTo<ProjectCommonInstaller>().FromInstance(this);
             //bind:
             Container.Bind<ISceneLoadingService>().To<SceneLoadingService>().AsSingle().NonLazy();
             //data service

@@ -86,7 +86,6 @@
      <Compile Include="Assets\Scripts\Services\AppServices.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Installers\MainMenuInstallers.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Scripts\Services\GameplayInput\IGameplayInputService.cs" />
      <Compile Include="Assets\Scripts\Gameplay\HeroController.cs" />
