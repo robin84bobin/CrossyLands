@@ -6,12 +6,6 @@ public class ProjectStandaloneInstaller : ProjectCommonInstaller
     public override void InstallBindings()
     {
         base.InstallBindings();
-        BindGameplayInput();
-    }
-
-    private void BindGameplayInput()
-    {
-        Container.Bind<IGameplayInputService>().To<StandaloneGameplayInputService>().AsSingle().NonLazy();
     }
 
 #endif

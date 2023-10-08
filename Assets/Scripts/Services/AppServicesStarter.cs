@@ -1,13 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace Services
 {
-    public class AppServices : MonoBehaviour
+    public class AppServicesStarter : MonoBehaviour
     {
         [Inject] public ISceneLoadingService SceneLoadingService { get; }
-        [Inject] public IGameplayInputService GameplayInputService { get; }
         
         //TODO make via IInitializable
         private void Start()

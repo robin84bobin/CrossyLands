@@ -490,6 +490,8 @@ MonoBehaviour:
   _heroSpawnPoint: {fileID: 152432078}
   _heroPrefab: {fileID: 5267805457675580180, guid: d87b5d91e3b41c54b8b2e1d975bf0d8e,
     type: 3}
+  _inputServicePrefab: {fileID: 3571306000204075982, guid: ecb3a46f6d2bb2240b92ec4e59c2b69b,
+    type: 3}
 --- !u!1 &1964087201
 GameObject:
   m_ObjectHideFlags: 0

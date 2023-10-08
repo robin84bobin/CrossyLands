@@ -8,11 +8,15 @@ namespace Installers.Project
         public override void InstallBindings()
         {
             //bind:
-            Container.Bind<ISceneLoadingService>().To<SceneLoadingService>().AsSingle().NonLazy();
+            BindSceneLoadService();
             //data service
             //resources service
             //etc.
         }
 
+        private void BindSceneLoadService()
+        {
+            Container.Bind<ISceneLoadingService>().To<SceneLoadingService>().AsSingle().NonLazy();
+        }
     }
 }
