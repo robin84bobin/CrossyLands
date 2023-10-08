@@ -11,6 +11,8 @@ namespace Installers.Gameplay
 
         public override void InstallBindings()
         {
+            Container.BindInterfacesTo<HeroModel>().AsSingle().NonLazy();
+            
             InstantiateObjects();
         }
 
