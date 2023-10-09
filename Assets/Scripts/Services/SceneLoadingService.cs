@@ -4,14 +4,14 @@ namespace Services
 {
     public class SceneLoadingService : ISceneLoadingService
     {
-        public void Load(string sceneName)
+        public void Load(string sceneName, LoadSceneMode mode)
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName, mode);
         }
     }
 
     public interface ISceneLoadingService
     {
-        void Load(string sceneName);
+        void Load(string sceneName, LoadSceneMode mode = LoadSceneMode.Single);
     }
 }

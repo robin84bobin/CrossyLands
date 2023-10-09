@@ -1,5 +1,6 @@
 using Services;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
@@ -17,10 +18,11 @@ public class MainMenuView : MonoBehaviour
     private void StartClickHandler()
     {
         _sceneLoadingService.Load("GameScene");
+        _sceneLoadingService.Load("Level 1", LoadSceneMode.Additive);
     }
 
     void OnDestroy()
     {
-        _startButton.onClick.AddListener(StartClickHandler);
+        _startButton.onClick.RemoveListener(StartClickHandler);
     }
 }
