@@ -16,7 +16,7 @@ namespace Installers.Project
 
         private void BindSceneLoadService()
         {
-            Container.Bind<ISceneLoadingService>().To<SceneLoadingService>().AsSingle().NonLazy();
+            Container.Bind<ISceneLoadingService>().To<AddressablesSceneLoadingService>().AsSingle().NonLazy();
         }
     }
 }

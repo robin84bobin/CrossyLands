@@ -4,11 +4,14 @@ using Zenject;
 
 namespace Installers.Gameplay
 {
-    internal class HeroModel : IHeroModel, IInitializable, ITickable, IDisposable
+    internal class HeroModel : IInitializable, ITickable, IDisposable
     {
-        public HeroModel()
+        public HeroModel(BaseGameplayInputService inputService)
         {
+            InputService = inputService;
         }
+
+        public BaseGameplayInputService InputService { get; }
 
         public void Foo()
         {

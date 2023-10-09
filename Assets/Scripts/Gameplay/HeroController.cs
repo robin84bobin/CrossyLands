@@ -6,10 +6,11 @@ namespace Installers.Gameplay
 {
     public class HeroController : MonoBehaviour
     {
-        [Inject] private BaseGameplayInputService _inputService;
-        [Inject] private IHeroModel _heroModel;
+        private BaseGameplayInputService _inputService;
+        [Inject] private HeroModel _heroModel;
         private void Start()
         {
+            _inputService = _heroModel.InputService;
             _inputService.OnJump += JumpEventHandler;
             _inputService.OnMove += MoveEventHandler;
         }
