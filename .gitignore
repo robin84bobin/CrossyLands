@@ -3,3 +3,5 @@ UserSettings
 Logs
 obj
 Temp
+*.csproj
+*.sln
