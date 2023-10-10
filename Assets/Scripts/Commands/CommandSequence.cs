@@ -4,7 +4,7 @@ namespace Commands
 {
     public class CommandSequence : Command
     {
-        Queue<Command> _queue;
+        protected Queue<Command> _queue;
         private int _commandsCount;
         private int _commandsCompleted;
 

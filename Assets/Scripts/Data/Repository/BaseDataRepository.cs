@@ -7,14 +7,24 @@ namespace Data.Repository
 {
     public abstract class BaseDataRepository 
     {
+        public List<Command> InitStoragesCommands { get; }
         private readonly Dictionary<string, IDataStorage> _storages = new Dictionary<string, IDataStorage>();
+        public event Action<float> OnInitProgress;
         public event Action OnInitComplete = delegate { };
 
-        private List<Command> _initStoragesCommands;
         protected IDataBaseProxy _dbProxy;
+
+
+        protected BaseDataRepository(IDataBaseProxy dbProxy)
+        {
+            _dbProxy = dbProxy;
+            InitStoragesCommands = new List<Command>();
+        }
 
         public void Init()
         {
+            //TODO initialize data proxy by separate command outside of repository
+            
             _dbProxy.OnInitialized += OnDbInitComplete;
             _dbProxy.Init();
         }
@@ -30,11 +40,6 @@ namespace Data.Repository
 
         protected abstract void CreateStorages();
 
-        public BaseDataRepository(IDataBaseProxy dbProxy)
-        {
-            _dbProxy = dbProxy;
-            _initStoragesCommands = new List<Command>();
-        }
 
         protected DataStorage<T> CreateStorage<T>(string collectionName) where T : DataItem, new()
         {
@@ -42,16 +47,18 @@ namespace Data.Repository
             _storages.Add(collectionName, dataStorage);
             
             InitStorageCommand<T> command = new InitStorageCommand<T>(dataStorage, _dbProxy);
-            _initStoragesCommands.Add(command);
+            InitStoragesCommands.Add(command);
             
             return dataStorage;
         }
 
         protected virtual void OnDataProxyInitialised(){}
 
+
         private void InitStorages()
         {
-            CommandSequence sequence = new CommandSequence(_initStoragesCommands.ToArray());
+            CommandSequence sequence = new CommandSequence(InitStoragesCommands.ToArray());
+            sequence.OnProgress += OnInitProgress;
             sequence.OnComplete += () =>
             {
                 OnInitComplete.Invoke();

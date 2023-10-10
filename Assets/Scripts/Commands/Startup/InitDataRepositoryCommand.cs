@@ -14,11 +14,13 @@ namespace Commands.Startup
         public override void Execute()
         {
             _baseDataRepository.OnInitComplete += OnInitComplete;
+            _baseDataRepository.OnInitProgress += SetProgress;
             _baseDataRepository.Init();
         }
 
         private void OnInitComplete()
         {
+            _baseDataRepository.OnInitProgress -= SetProgress;
             _baseDataRepository.OnInitComplete -= OnInitComplete;
             Complete();
         }
