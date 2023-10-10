@@ -22,17 +22,20 @@ namespace Data.User
 
         private CatalogDataRepository _catalogDataRepository;
 
-        public override void Init()
+        protected override void OnDataProxyInitialised()
         {
-            Currency = CreateStorage<UserCurrency>(CURRENCY);
-
-            _dbProxy.OnInitialized += OnDbInitComplete;
-            _dbProxy.Init();
-
-            if (!_dbProxy.CheckSourceExist())
+            bool userDataExist = _dbProxy.CheckSourceExist();
+            if (userDataExist == false)
             {
                 InitStartValuesFrom(_catalogDataRepository);
             }
+        }
+
+        protected override void CreateStorages()
+        {
+            Currency = CreateStorage<UserCurrency>(CURRENCY);
+            // Currency = CreateStorage<UserCurrency>(CURRENCY);
+            // Currency = CreateStorage<UserCurrency>(CURRENCY);
         }
 
         private void InitStartValuesFrom(CatalogDataRepository catalogData)
@@ -68,8 +71,8 @@ namespace Data.User
                 SaveAll();
             }
         }
-        
-        protected void SaveAll()
+
+        private void SaveAll()
         {
             Currency.SaveData();
             // ShopItems.SaveData();

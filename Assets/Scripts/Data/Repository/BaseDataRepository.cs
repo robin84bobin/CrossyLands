@@ -7,14 +7,28 @@ namespace Data.Repository
 {
     public abstract class BaseDataRepository 
     {
-        public abstract void Init();
-        
-        public Dictionary<string, IDataStorage> Storages = new Dictionary<string, IDataStorage>();
-
+        private readonly Dictionary<string, IDataStorage> _storages = new Dictionary<string, IDataStorage>();
         public event Action OnInitComplete = delegate { };
 
         private List<Command> _initStoragesCommands;
         protected IDataBaseProxy _dbProxy;
+
+        public void Init()
+        {
+            _dbProxy.OnInitialized += OnDbInitComplete;
+            _dbProxy.Init();
+        }
+
+        private void OnDbInitComplete()
+        {
+            _dbProxy.OnInitialized -= OnDbInitComplete;
+            
+            OnDataProxyInitialised();
+            CreateStorages();
+            InitStorages();
+        }
+
+        protected abstract void CreateStorages();
 
         public BaseDataRepository(IDataBaseProxy dbProxy)
         {
@@ -25,16 +39,18 @@ namespace Data.Repository
         protected DataStorage<T> CreateStorage<T>(string collectionName) where T : DataItem, new()
         {
             var dataStorage = new DataStorage<T>(collectionName, _dbProxy);
-            var command = new InitStorageCommand<T>(dataStorage, _dbProxy);
+            _storages.Add(collectionName, dataStorage);
+            
+            InitStorageCommand<T> command = new InitStorageCommand<T>(dataStorage, _dbProxy);
             _initStoragesCommands.Add(command);
-
-            Storages.Add(collectionName, dataStorage);
+            
             return dataStorage;
         }
 
-        protected void OnDbInitComplete()
+        protected virtual void OnDataProxyInitialised(){}
+
+        private void InitStorages()
         {
-            _dbProxy.OnInitialized -= OnDbInitComplete;
             CommandSequence sequence = new CommandSequence(_initStoragesCommands.ToArray());
             sequence.OnComplete += () =>
             {

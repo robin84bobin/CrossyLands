@@ -20,8 +20,8 @@ public class AppStarter : MonoBehaviour
         //TODO try to make Task.WaitAll(taskList)
         
         _commandSequence = new CommandSequence(
-            new InitDataCommand(_catalogRepository),
-            new InitDataCommand(_userRepository)
+            new InitDataRepositoryCommand(_catalogRepository),
+            new InitDataRepositoryCommand(_userRepository)
         );
         _commandSequence.OnComplete += OnInitComplete;
         _commandSequence.Execute();

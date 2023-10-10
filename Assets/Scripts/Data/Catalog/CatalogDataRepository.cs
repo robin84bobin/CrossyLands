@@ -13,15 +13,12 @@ namespace Data.Catalog
         {
         }
 
-        public override void Init()
+        protected override void CreateStorages()
         {
             Currency = CreateStorage<Currency>("currency");
             ShopItems = CreateStorage<ShopItem>("shop");
             Products = CreateStorage<Product>("products");
             FarmItems = CreateStorage<FarmItem>("farmItems");
-
-            _dbProxy.OnInitialized += OnDbInitComplete;
-            _dbProxy.Init();
         }
     }
 }

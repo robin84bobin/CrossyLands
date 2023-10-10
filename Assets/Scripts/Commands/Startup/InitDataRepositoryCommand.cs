@@ -2,11 +2,11 @@ using Data.Repository;
 
 namespace Commands.Startup
 {
-    public class InitDataCommand : Command
+    public class InitDataRepositoryCommand : Command
     {
         private BaseDataRepository _baseDataRepository;
 
-        public InitDataCommand(BaseDataRepository baseDataRepository)
+        public InitDataRepositoryCommand(BaseDataRepository baseDataRepository)
         {
             _baseDataRepository = baseDataRepository;
         }
