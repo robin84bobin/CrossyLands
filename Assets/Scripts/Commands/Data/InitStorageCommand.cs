@@ -7,19 +7,19 @@ namespace Commands.Data
 
     public class InitStorageCommand<T> : Command where T : DataItem, new()
     {
-        private IDataBaseProxy _dbProxy;
+        private IDataProxyService _dataProxyService;
         private DataStorage<T> _storage;
 
-        public InitStorageCommand(DataStorage<T> storage, IDataBaseProxy dbProxy)
+        public InitStorageCommand(DataStorage<T> storage, IDataProxyService dataProxyService)
         {
-            _dbProxy = dbProxy;
+            _dataProxyService = dataProxyService;
             _storage = storage;
         }
 
         public override void Execute()
         {
             Debug.Log(this + " --> " + _storage.CollectionName);
-            _dbProxy.Get<T>(_storage.CollectionName, OnGetData);
+            _dataProxyService.Get<T>(_storage.CollectionName, OnGetData);
         }
 
         private void OnGetData(Dictionary<string, T> items)

@@ -15,7 +15,7 @@ namespace Data.User
 
         public  DataStorage<UserCurrency> Currency;
 
-        public UserDataRepository(IDataBaseProxy dbProxy, CatalogDataRepository catalogDataRepository) : base(dbProxy) 
+        public UserDataRepository(IDataProxyService dbProxyService, CatalogDataRepository catalogDataRepository) : base(dbProxyService) 
         {
             _catalogDataRepository = catalogDataRepository;
         }
@@ -24,7 +24,7 @@ namespace Data.User
 
         protected override void OnDataProxyInitialised()
         {
-            bool userDataExist = _dbProxy.CheckSourceExist();
+            bool userDataExist = DBProxyService.CheckSourceExist();
             if (userDataExist == false)
             {
                 InitStartValuesFrom(_catalogDataRepository);

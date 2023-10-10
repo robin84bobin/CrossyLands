@@ -12,12 +12,12 @@ namespace Data.Repository
         public event Action<float> OnInitProgress;
         public event Action OnInitComplete = delegate { };
 
-        protected IDataBaseProxy _dbProxy;
+        protected IDataProxyService DBProxyService;
 
 
-        protected BaseDataRepository(IDataBaseProxy dbProxy)
+        protected BaseDataRepository(IDataProxyService dbProxyService)
         {
-            _dbProxy = dbProxy;
+            DBProxyService = dbProxyService;
             InitStoragesCommands = new List<Command>();
         }
 
@@ -25,13 +25,13 @@ namespace Data.Repository
         {
             //TODO initialize data proxy by separate command outside of repository
             
-            _dbProxy.OnInitialized += OnDbInitComplete;
-            _dbProxy.Init();
+            DBProxyService.OnInitialized += OnDbInitComplete;
+            DBProxyService.Init();
         }
 
         private void OnDbInitComplete()
         {
-            _dbProxy.OnInitialized -= OnDbInitComplete;
+            DBProxyService.OnInitialized -= OnDbInitComplete;
             
             OnDataProxyInitialised();
             CreateStorages();
@@ -43,10 +43,10 @@ namespace Data.Repository
 
         protected DataStorage<T> CreateStorage<T>(string collectionName) where T : DataItem, new()
         {
-            var dataStorage = new DataStorage<T>(collectionName, _dbProxy);
+            var dataStorage = new DataStorage<T>(collectionName, DBProxyService);
             _storages.Add(collectionName, dataStorage);
             
-            InitStorageCommand<T> command = new InitStorageCommand<T>(dataStorage, _dbProxy);
+            InitStorageCommand<T> command = new InitStorageCommand<T>(dataStorage, DBProxyService);
             InitStoragesCommands.Add(command);
             
             return dataStorage;
@@ -68,7 +68,7 @@ namespace Data.Repository
 
         public T GetSetting<T>(string name)
         {
-            return _dbProxy.GetConfigObject<T>(name);
+            return DBProxyService.GetConfigObject<T>(name);
         }
     }
 

@@ -9,7 +9,7 @@ namespace Data.Catalog
         public DataStorage<Product> Products;
         public DataStorage<FarmItem> FarmItems;
         
-        public CatalogDataRepository(IDataBaseProxy dbProxy) : base(dbProxy)
+        public CatalogDataRepository(IDataProxyService dbProxyService) : base(dbProxyService)
         {
         }
 

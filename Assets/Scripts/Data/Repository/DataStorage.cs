@@ -17,7 +17,7 @@ namespace Data
         public string CollectionName { get; private set; }
 
         private Dictionary<string, T> _items = new Dictionary<string, T>();
-        private IDataBaseProxy _dbProxy;
+        private IDataProxyService _dbProxyService;
 
         public T this[string id]
         {
@@ -25,11 +25,11 @@ namespace Data
             set { Set(value); }
         }
 
-        public DataStorage(string collectionName, IDataBaseProxy dbProxy, bool readOnly = false)
+        public DataStorage(string collectionName, IDataProxyService dbProxyService, bool readOnly = false)
         {
             CollectionName = collectionName;
             ReadOnly = readOnly;
-            _dbProxy = dbProxy;
+            _dbProxyService = dbProxyService;
         }
 
         public void Remove(string id, bool now = false, Action<string> callback = null)
@@ -39,7 +39,7 @@ namespace Data
                 _items.Remove(id);
                 if (now)
                 {
-                    _dbProxy.SaveCollection(CollectionName, _items);
+                    _dbProxyService.SaveCollection(CollectionName, _items);
                 }
             }
             else
@@ -85,7 +85,7 @@ namespace Data
                 return;
             }
 
-            _dbProxy.SaveCollection(CollectionName, _items);
+            _dbProxyService.SaveCollection(CollectionName, _items);
         }
 
 

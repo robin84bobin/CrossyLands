@@ -25,9 +25,9 @@ namespace Installers.Project
 
         private void BindDataProxies()
         {
-            Container.Bind<IDataBaseProxy>().To<JsonDbProxy>().WithArguments(_config.CatalogPath, _config.CatalogRoot)
+            Container.Bind<IDataProxyService>().To<JsonDataProxyService>().WithArguments(_config.CatalogPath, _config.CatalogRoot)
                 .WhenInjectedInto<CatalogDataRepository>();
-            Container.Bind<IDataBaseProxy>().To<JsonDbProxy>().WithArguments(_config.UserRepositoryPath, _config.CatalogRoot)
+            Container.Bind<IDataProxyService>().To<JsonDataProxyService>().WithArguments(_config.UserRepositoryPath, _config.CatalogRoot)
                 .WhenInjectedInto<UserDataRepository>();
         }
 
