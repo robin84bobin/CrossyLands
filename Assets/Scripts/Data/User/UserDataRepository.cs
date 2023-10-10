@@ -15,15 +15,13 @@ namespace Data.User
 
         public  DataStorage<UserCurrency> Currency;
 
-        public UserDataRepository(IDataBaseProxy dbProxy) : base(dbProxy) { }
-
-        private CatalogDataRepository _catalogDataRepository;
-
-        public void Setup(CatalogDataRepository catalogDataRepository)
+        public UserDataRepository(IDataBaseProxy dbProxy, CatalogDataRepository catalogDataRepository) : base(dbProxy) 
         {
             _catalogDataRepository = catalogDataRepository;
         }
-        
+
+        private CatalogDataRepository _catalogDataRepository;
+
         public override void Init()
         {
             Currency = CreateStorage<UserCurrency>(CURRENCY);

@@ -22,7 +22,7 @@ namespace Services
         {
             if (path.Contains("://"))
             {
-                var text = await LoadFile(path);
+                var text = await LoadUrl(path);
                 return text;
             }
 
@@ -47,7 +47,7 @@ namespace Services
             return exists;
         }
         
-        private async Task<string> LoadFile(string path)
+        private async Task<string> LoadUrl(string path)
         {
             var request = new UnityWebRequest(path);
             var operation =  request.SendWebRequest();
@@ -57,11 +57,5 @@ namespace Services
             
             return request.downloadHandler.text;
         } 
-    }
-
-    public interface IResourcesService
-    {
-        void LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Single);
-        string LoadTextFile(string path);
     }
 }

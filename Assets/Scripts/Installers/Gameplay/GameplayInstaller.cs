@@ -12,10 +12,6 @@ namespace Installers.Gameplay
         public override void InstallBindings()
         {
             InstantiateInput();
-            
-            Container.BindInterfacesTo<HeroModel>().AsCached().NonLazy();
-            Container.Bind<HeroModel>().AsCached().NonLazy();
-            
             InstantiateObjects();
         }
 
@@ -26,6 +22,8 @@ namespace Installers.Gameplay
 
         private void InstantiateHero()
         {
+            Container.BindInterfacesTo<HeroModel>().AsCached().NonLazy();
+            Container.Bind<HeroModel>().AsCached().NonLazy();
             var hero = Container.InstantiatePrefabForComponent<HeroController>(_heroPrefab, _heroSpawnPoint.transform.position,
                 Quaternion.identity, null);
         }

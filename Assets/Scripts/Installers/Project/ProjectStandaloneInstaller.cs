@@ -6,7 +6,7 @@ public class ProjectStandaloneInstaller : ProjectCommonInstaller
     public override void InstallBindings()
     {
         base.InstallBindings();
+        //TODO some stuff for platform
     }
-
 #endif
 }

@@ -19,6 +19,7 @@ namespace Commands.Startup
 
         private void OnInitComplete()
         {
+            _baseDataRepository.OnInitComplete -= OnInitComplete;
             Complete();
         }
     }

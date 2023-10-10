@@ -1,3 +1,4 @@
+using Common;
 using Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,8 +18,14 @@ public class MainMenuView : MonoBehaviour
 
     private void StartClickHandler()
     {
-        ResourcesService.LoadScene("GameScene");
-        ResourcesService.LoadScene("Level 1", LoadSceneMode.Additive);
+        LoadLevel();
+    }
+
+    private void LoadLevel(int levelId = 1)
+    {
+        ResourcesService.LoadScene(AppConstants.Scenes.Game);
+        var levelSceneName = AppConstants.Scenes.Level + levelId;
+        ResourcesService.LoadScene(levelSceneName, LoadSceneMode.Additive);
     }
 
     void OnDestroy()

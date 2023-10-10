@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using InternalNewtonsoft.Json.Linq;
 using Services;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace Data
 {
@@ -82,21 +80,12 @@ namespace Data
 
         private async void TryRefreshData()
         {
-            _dataJson = _resourcesService.LoadTextFile(_path);
-            _lastReadTime = DateTime.Now;
+            await Task.Run(() =>
+            {
+                _dataJson = _resourcesService.LoadTextFile(_path);
+                _lastReadTime = DateTime.Now;
+            });
         }
-
-        private async Task LoadFile()
-        {
-            var request = new UnityWebRequest(_path);
-            var operation =  request.SendWebRequest();
-
-            while (!operation.isDone) 
-                await Task.CompletedTask;
-            
-            _dataJson = request.downloadHandler.text;
-            _lastReadTime = DateTime.Now;
-        } 
 
         public void SaveCollection<T>(string collection, Dictionary<string, T> items, Action callback = null)
             where T : DataItem, new()
@@ -118,8 +107,6 @@ namespace Data
             writer.Write(sourceString.ToCharArray());
             writer.Close();
         }
-
-
 
         public T GetConfigObject<T>(string name)
         {

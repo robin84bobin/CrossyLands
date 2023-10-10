@@ -28,7 +28,12 @@ namespace Commands
                     };
                 }
                 else if (i == _commands.Length - 1)
-                    _commands[i].OnComplete += () => {};
+                {
+                    _commands[i].OnComplete += () =>
+                    {
+                        Complete();
+                    };
+                }
                     
             }
 

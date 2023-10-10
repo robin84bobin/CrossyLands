@@ -2,5 +2,11 @@
 
 public class ProjectMobileInstaller : ProjectCommonInstaller
 {
-    //TODO ProjectMobileInstaller
+#if UNITY_ANDROID
+    public override void InstallBindings()
+    {
+        base.InstallBindings();
+        //TODO some stuff for platform
+    }
+#endif
 }
