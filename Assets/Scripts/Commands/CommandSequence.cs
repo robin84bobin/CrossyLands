@@ -1,43 +1,52 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace Commands
 {
     public class CommandSequence : Command
     {
-        private readonly Command[] _commands;
+        Queue<Command> _queue;
+        private int _commandsCount;
+        private int _commandsCompleted;
 
-        /// <summary>
-        /// do sequence of commands
-        /// </summary>
-        /// <param name="commands"></param>
         public CommandSequence(params Command[] commands)
         {
-            _commands = commands;
+            _queue = new Queue<Command>(commands);
         }
         
         public override void Execute()
         {
-            for (var i = 0; i < _commands.Length; i++)
-            {
-                if (i < _commands.Length - 1)
-                {
-                    var nextCommand = _commands[i + 1];
-                    _commands[i].OnComplete += () =>
-                    {
-                        CommandManager.Execute(nextCommand);
-                    };
-                }
-                else if (i == _commands.Length - 1)
-                {
-                    _commands[i].OnComplete += () =>
-                    {
-                        Complete();
-                    };
-                }
-                    
-            }
+            _commandsCount = _queue.Count;
+            _commandsCompleted = 0;
+            ExecuteNextCommand();
+        }
 
-            CommandManager.Execute(_commands.First());
+        private void ExecuteNextCommand()
+        {
+            var command = _queue.Dequeue();
+            command.OnComplete += OnCommandComplete;
+            command.OnProgress += OnCommandProgress;
+            command.Execute();
+        }
+
+        private void OnCommandProgress(float percent)
+        {
+            var percentPerCommand = 1f / _commandsCount;
+            var completedPercent = percentPerCommand * _commandsCompleted;
+            float value = completedPercent + percentPerCommand * percent;
+            SetProgress(value);
+        }
+
+        private void OnCommandComplete()
+        {
+            _commandsCompleted++;
+            
+            if (_queue.Count == 0)
+            {
+                Complete();
+                return;
+            }
+            
+            ExecuteNextCommand();
         }
     }
 }

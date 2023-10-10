@@ -56,7 +56,7 @@ namespace Data.Repository
             {
                 OnInitComplete.Invoke();
             };
-            CommandManager.Execute(sequence);
+            sequence.Execute();
         }
 
         public T GetSetting<T>(string name)

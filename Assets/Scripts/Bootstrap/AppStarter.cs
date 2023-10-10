@@ -24,7 +24,13 @@ public class AppStarter : MonoBehaviour
             new InitDataRepositoryCommand(_userRepository)
         );
         _commandSequence.OnComplete += OnInitComplete;
+        _commandSequence.OnProgress += OnInitProgress;
         _commandSequence.Execute();
+    }
+
+    private void OnInitProgress(float percent)
+    {
+        Debug.Log($"{this} : {percent * 100} %");
     }
 
     private void OnInitComplete()
