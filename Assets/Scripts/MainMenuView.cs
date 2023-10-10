@@ -6,7 +6,7 @@ using Zenject;
 
 public class MainMenuView : MonoBehaviour
 {
-    [Inject] public ISceneLoadingService _sceneLoadingService;
+    [Inject] public IResourcesService ResourcesService;
     
     [SerializeField] private Button _startButton;
 
@@ -17,8 +17,8 @@ public class MainMenuView : MonoBehaviour
 
     private void StartClickHandler()
     {
-        _sceneLoadingService.Load("GameScene");
-        _sceneLoadingService.Load("Level 1", LoadSceneMode.Additive);
+        ResourcesService.LoadScene("GameScene");
+        ResourcesService.LoadScene("Level 1", LoadSceneMode.Additive);
     }
 
     void OnDestroy()
