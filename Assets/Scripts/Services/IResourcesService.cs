@@ -1,10 +1,11 @@
-﻿using UnityEngine.SceneManagement;
+﻿using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 namespace Services
 {
     public interface IResourcesService
     {
         void LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Single);
-        string LoadTextFile(string path);
+        Task<string> LoadTextFile(string path);
     }
 }

@@ -13,16 +13,12 @@ namespace Services
             SceneManager.LoadScene(sceneName, mode);
         }
 
-        public string LoadTextFile(string path)
+        public async Task<string> LoadTextFile(string path)
         {
-            return LoadTextFileAsync(path).Result;
-        }
-
-        private async Task<string> LoadTextFileAsync(string path)
-        {
+            string text = string.Empty;
             if (path.Contains("://"))
             {
-                var text = await LoadUrl(path);
+                text = await LoadUrl(path);
                 return text;
             }
 
@@ -30,11 +26,10 @@ namespace Services
             {
                 if (!IsFileExist(path))
                     File.CreateText(path).Close();
-                var text = File.ReadAllText(path);
-                return text;
+                text = File.ReadAllText(path);
             });
 
-            return string.Empty;
+            return text;
         }
 
         private bool IsFileExist(string path_)

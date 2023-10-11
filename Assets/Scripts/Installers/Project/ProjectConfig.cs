@@ -5,12 +5,11 @@ namespace Installers.Project
     [CreateAssetMenu(menuName = "Create ProjectConfig", fileName = "ProjectConfig", order = 0)]
     internal class ProjectConfig :  ScriptableObject
     {
+        [Header("DataConfig:")]
         public string CatalogRoot = "Root";
         
-        //TODO try fill in inspector [Application.streamingAssetsPath]/CatalogData.json
-        public string CatalogPath => Application.streamingAssetsPath + "/CatalogData.json";
+        public string CatalogPath => "CatalogData";
         
-        //TODO try fill in inspector [Application.persistentDataPath]/user_0.json
-        public string UserRepositoryPath => Application.persistentDataPath + "/user_0.json";
+        public string UserRepositoryPath => Application.persistentDataPath + "/user_{0}.json";
     }
 }

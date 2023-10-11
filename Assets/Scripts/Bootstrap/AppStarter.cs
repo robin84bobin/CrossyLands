@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Commands;
 using Commands.Startup;
 using Common;
@@ -5,6 +6,7 @@ using Data.Catalog;
 using Data.User;
 using Services;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using Zenject;
 
 public class AppStarter : MonoBehaviour
@@ -17,8 +19,6 @@ public class AppStarter : MonoBehaviour
     
     void Start()
     {
-        //TODO try to make Task.WaitAll(taskList)
-        
         _commandSequence = new CommandSequence(
             new InitDataRepositoryCommand(_catalogRepository),
             new InitDataRepositoryCommand(_userRepository)
@@ -35,7 +35,9 @@ public class AppStarter : MonoBehaviour
 
     private void OnInitComplete()
     {
+        _commandSequence.OnProgress -= OnInitProgress;
         _commandSequence.OnComplete -= OnInitComplete;
         _resourcesService.LoadScene(AppConstants.Scenes.Start);
     }
+    
 }

@@ -1,4 +1,6 @@
-﻿using UnityEngine.AddressableAssets;
+﻿using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 namespace Services
@@ -11,9 +13,11 @@ namespace Services
             await handle.Task;
         }
 
-        public string LoadTextFile(string path)
+        public async Task<string> LoadTextFile(string path)
         {
-            throw new System.NotImplementedException();
+            var handle = Addressables.LoadAssetAsync<TextAsset>(path);
+            var t =  await handle.Task;
+            return t.text;
         }
     }
 }

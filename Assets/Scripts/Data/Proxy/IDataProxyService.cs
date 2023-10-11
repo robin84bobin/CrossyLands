@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Services;
 
 namespace Data
 {
@@ -10,6 +11,8 @@ namespace Data
         /// </summary>
         void Init();
 
+        void SetupResourceService(IResourcesService service);
+        
         /// <summary>
         /// get data list of current type 
         /// </summary>

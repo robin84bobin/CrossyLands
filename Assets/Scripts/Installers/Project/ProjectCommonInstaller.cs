@@ -20,7 +20,10 @@ namespace Installers.Project
 
         private void BindResourcesService()
         {
-            Container.Bind<IResourcesService>().To<UnityResourcesService>().AsSingle().NonLazy();
+            Container.Bind<IResourcesService>().To<AddressablesResourcesService>()
+                .AsSingle().NonLazy();
+            Container.Bind<IResourcesService>().To<UnityResourcesService>().AsSingle()
+                .WhenInjectedInto<UserDataRepository>().NonLazy();
         }
 
         private void BindDataProxies()

@@ -1,4 +1,5 @@
 using Data.Repository;
+using Services;
 
 namespace Data.Catalog
 {
@@ -9,8 +10,10 @@ namespace Data.Catalog
         public DataStorage<Product> Products;
         public DataStorage<FarmItem> FarmItems;
         
-        public CatalogDataRepository(IDataProxyService dbProxyService) : base(dbProxyService)
+        public CatalogDataRepository(IDataProxyService dataProxyService, IResourcesService resourceService) : 
+            base(dataProxyService)
         {
+            DataProxyService.SetupResourceService(resourceService);
         }
 
         protected override void CreateStorages()

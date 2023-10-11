@@ -1,4 +1,6 @@
+using System.ComponentModel.Design;
 using Data.Catalog;
+using Services;
 using UnityEngine;
 using Zenject;
 
@@ -15,8 +17,11 @@ namespace Data.User
 
         public  DataStorage<UserCurrency> Currency;
 
-        public UserDataRepository(IDataProxyService dbProxyService, CatalogDataRepository catalogDataRepository) : base(dbProxyService) 
+        public UserDataRepository(IDataProxyService dbProxyService, CatalogDataRepository catalogDataRepository,
+            IResourcesService resourceService) : 
+            base(dbProxyService) 
         {
+            DataProxyService.SetupResourceService(resourceService);
             _catalogDataRepository = catalogDataRepository;
         }
 
@@ -24,7 +29,7 @@ namespace Data.User
 
         protected override void OnDataProxyInitialised()
         {
-            bool userDataExist = DBProxyService.CheckSourceExist();
+            bool userDataExist = DataProxyService.CheckSourceExist();
             if (userDataExist == false)
             {
                 InitStartValuesFrom(_catalogDataRepository);
@@ -43,7 +48,7 @@ namespace Data.User
             foreach (Currency currency in catalogData.Currency.GetAll())
             {
                 UserCurrency c = new UserCurrency(){Type = currency.Type, CatalogDataId = currency.Id, Value = currency.Value};
-                this.Currency.Set(c, currency.Id, true);
+                Currency.Set(c, currency.Id, true);
             }
             
             SaveAll();

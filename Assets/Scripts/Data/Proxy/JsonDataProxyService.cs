@@ -10,7 +10,7 @@ namespace Data
 {
     internal class JsonDataProxyService: IDataProxyService
     {
-        private readonly IResourcesService _resourcesService;
+        private IResourcesService _resourcesService;
         
         private string _path;
         private DateTime _lastReadTime;
@@ -18,13 +18,16 @@ namespace Data
         private string _dataJson;
         private string _rootNode;
 
-        public JsonDataProxyService(IResourcesService resourcesService, string path, string rootNode)
+        public JsonDataProxyService(string path, string rootNode)
         {
-            _resourcesService = resourcesService;
             _rootNode = rootNode;
             _path =  path;
         }
 
+        public void SetupResourceService(IResourcesService service)
+        {
+            _resourcesService = service;
+        }
         public void Save<T>(string collection, T item, string id = "", Action<T> callback = null) where T : DataItem, new()
         {
             throw new NotImplementedException();
@@ -80,11 +83,8 @@ namespace Data
 
         private async void TryRefreshData()
         {
-            await Task.Run(() =>
-            {
-                _dataJson = _resourcesService.LoadTextFile(_path);
-                _lastReadTime = DateTime.Now;
-            });
+            _dataJson = await _resourcesService.LoadTextFile(_path);
+            _lastReadTime = DateTime.Now;
         }
 
         public void SaveCollection<T>(string collection, Dictionary<string, T> items, Action callback = null)

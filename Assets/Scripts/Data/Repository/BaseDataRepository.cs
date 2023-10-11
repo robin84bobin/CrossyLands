@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using Commands;
 using Commands.Data;
 
@@ -12,12 +13,12 @@ namespace Data.Repository
         public event Action<float> OnInitProgress;
         public event Action OnInitComplete = delegate { };
 
-        protected IDataProxyService DBProxyService;
+        protected IDataProxyService DataProxyService;
 
 
-        protected BaseDataRepository(IDataProxyService dbProxyService)
+        protected BaseDataRepository(IDataProxyService dataProxyService)
         {
-            DBProxyService = dbProxyService;
+            DataProxyService = dataProxyService;
             InitStoragesCommands = new List<Command>();
         }
 
@@ -25,17 +26,17 @@ namespace Data.Repository
         {
             //TODO initialize data proxy by separate command outside of repository
             
-            DBProxyService.OnInitialized += OnDbInitComplete;
-            DBProxyService.Init();
+            DataProxyService.OnInitialized += OnDataInitComplete;
+            DataProxyService.Init();
         }
 
-        private void OnDbInitComplete()
+        private void OnDataInitComplete()
         {
-            DBProxyService.OnInitialized -= OnDbInitComplete;
+            DataProxyService.OnInitialized -= OnDataInitComplete;
             
-            OnDataProxyInitialised();
             CreateStorages();
             InitStorages();
+            OnDataProxyInitialised();
         }
 
         protected abstract void CreateStorages();
@@ -43,17 +44,16 @@ namespace Data.Repository
 
         protected DataStorage<T> CreateStorage<T>(string collectionName) where T : DataItem, new()
         {
-            var dataStorage = new DataStorage<T>(collectionName, DBProxyService);
+            var dataStorage = new DataStorage<T>(collectionName, DataProxyService);
             _storages.Add(collectionName, dataStorage);
             
-            InitStorageCommand<T> command = new InitStorageCommand<T>(dataStorage, DBProxyService);
+            InitStorageCommand<T> command = new InitStorageCommand<T>(dataStorage, DataProxyService);
             InitStoragesCommands.Add(command);
             
             return dataStorage;
         }
 
         protected virtual void OnDataProxyInitialised(){}
-
 
         private void InitStorages()
         {
@@ -68,10 +68,7 @@ namespace Data.Repository
 
         public T GetSetting<T>(string name)
         {
-            return DBProxyService.GetConfigObject<T>(name);
+            return DataProxyService.GetConfigObject<T>(name);
         }
     }
-
-
-
 }
