@@ -24,8 +24,12 @@ namespace Installers.Gameplay
         {
             Container.BindInterfacesTo<HeroModel>().AsCached().NonLazy();
             Container.Bind<HeroModel>().AsCached().NonLazy();
+            
+            //move to factory?
             var hero = Container.InstantiatePrefabForComponent<HeroController>(_heroPrefab, _heroSpawnPoint.transform.position,
                 Quaternion.identity, null);
+
+            Container.Bind<HeroController>().FromComponentOn(hero.gameObject).AsSingle();
         }
 
         private void InstantiateInput()
