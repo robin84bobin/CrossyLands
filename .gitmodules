@@ -1,0 +1,3 @@
+[submodule "ecslite"]
+	path = ecslite
+	url = git@github.com:Leopotam/ecslite.git
