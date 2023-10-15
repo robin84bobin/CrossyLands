@@ -16,10 +16,19 @@ namespace ECS.Systems
         
         public void Init()
         {
-            var player = _world.NewEntity();
-            ref var moveComponent = ref player.Get<MoveComponent>();
-            
-            ref var jumpComponent = ref player.Get<JumpComponent>();
+            InitHero();
+        }
+
+        private void InitHero()
+        {
+            var hero = _world.NewEntity();
+
+            ref var inputHeroComponent = ref hero.Get<PlayerInputComponent>();
+
+            ref var moveComponent = ref hero.Get<MoveComponent>();
+            moveComponent.Transform = _heroGameObject.transform;
+
+            ref var jumpComponent = ref hero.Get<JumpComponent>();
             jumpComponent.Transform = _heroGameObject.transform;
         }
     }

@@ -15,6 +15,8 @@ public class ECSStartup : MonoBehaviour
         _world = new EcsWorld();
         _systems = new EcsSystems(_world);
         _systems.Add(new GameInitSystem(_hero));
+        _systems.Add(new PlayerInputSystem());
+        _systems.Add(new PlayerMoveSystem());
         
         _systems.Init();
     }
