@@ -2,7 +2,7 @@
 
 namespace ECS
 {
-    public struct PlayerInputComponent
+    public struct PlayerInputMoveComponent
     {
         public Vector3 Direction;
     }

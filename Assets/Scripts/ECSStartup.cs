@@ -14,11 +14,24 @@ public class ECSStartup : MonoBehaviour
     {
         _world = new EcsWorld();
         _systems = new EcsSystems(_world);
+        
+        AddSystems();
+        AddEvents();
+        
+        _systems.Init();
+    }
+
+    private void AddEvents()
+    {
+        _systems.OneFrame<JumpEvent>();
+    }
+
+    private void AddSystems()
+    {
         _systems.Add(new GameInitSystem(_hero));
         _systems.Add(new PlayerInputSystem());
         _systems.Add(new PlayerMoveSystem());
-        
-        _systems.Init();
+        _systems.Add(new PlayerJumpSystem());
     }
 
     void Update()

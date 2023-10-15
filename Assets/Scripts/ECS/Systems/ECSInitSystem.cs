@@ -23,12 +23,12 @@ namespace ECS.Systems
         {
             var hero = _world.NewEntity();
 
-            ref var inputHeroComponent = ref hero.Get<PlayerInputComponent>();
+            ref var inputHeroComponent = ref hero.Get<PlayerInputMoveComponent>();
 
             ref var moveComponent = ref hero.Get<MoveComponent>();
             moveComponent.Transform = _heroGameObject.transform;
 
-            ref var jumpComponent = ref hero.Get<JumpComponent>();
+            ref var jumpComponent = ref hero.Get<PlayerInputJumpComponent>();
             jumpComponent.Transform = _heroGameObject.transform;
         }
     }

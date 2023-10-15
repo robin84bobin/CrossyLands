@@ -2,7 +2,7 @@
 
 namespace ECS
 {
-    public struct JumpComponent
+    public struct PlayerInputJumpComponent
     {
         public bool IsJumping;
         public Transform Transform { get; set; }
