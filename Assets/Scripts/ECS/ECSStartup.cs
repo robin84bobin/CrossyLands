@@ -2,6 +2,7 @@ using ECS.Systems;
 using Installers.Gameplay;
 using Leopotam.Ecs;
 using UnityEngine;
+using Voody.UniLeo;
 using Zenject;
 
 public class ECSStartup : MonoBehaviour
@@ -28,6 +29,7 @@ public class ECSStartup : MonoBehaviour
 
     private void AddSystems()
     {
+        _systems.ConvertScene();
         _systems.Add(new GameInitSystem(_hero));
         _systems.Add(new PlayerInputSystem());
         _systems.Add(new PlayerMoveSystem());
