@@ -19,5 +19,14 @@ namespace Services
             var t =  await handle.Task;
             return t.text;
         }
+
+        public async Task<T> LoadComponentFromPrefab<T>(string path) where T:UnityEngine.Object
+        {
+            var handle = Addressables.LoadAssetAsync<GameObject>(path);
+            var gameObject =  await handle.Task;
+            var component = gameObject.GetComponent<T>();
+            return component;
+        }
+
     }
 }

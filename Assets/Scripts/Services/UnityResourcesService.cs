@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -31,6 +32,12 @@ namespace Services
 
             return text;
         }
+
+        public Task<T> LoadComponentFromPrefab<T>(string path) where T:UnityEngine.Object
+        {
+            throw new NotImplementedException();
+        }
+
 
         private bool IsFileExist(string path_)
         {
