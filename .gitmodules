@@ -1,3 +1,6 @@
 [submodule "Assets/Plugins/LeoECS"]
 	path = Assets/Plugins/LeoECS
 	url = git@github.com:Leopotam/ecs.git
+[submodule "Assets/Plugins/UniLeo"]
+	path = Assets/Plugins/UniLeo
+	url = git@github.com:voody2506/UniLeo.git
