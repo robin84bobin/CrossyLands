@@ -38,6 +38,11 @@ namespace Services
             throw new NotImplementedException();
         }
 
+        public Task<GameObject> LoadPrefab(string path)
+        {
+            throw new NotImplementedException();
+        }
+
 
         private bool IsFileExist(string path_)
         {

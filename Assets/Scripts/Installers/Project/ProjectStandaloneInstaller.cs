@@ -1,12 +1,13 @@
-using Installers.Project;
-
-public class ProjectStandaloneInstaller : ProjectCommonInstaller
+namespace Installers.Project
 {
-#if UNITY_EDITOR || UNITY_STANDALONE
-    public override void InstallBindings()
+    public class ProjectStandaloneInstaller : ProjectCommonInstaller
     {
-        base.InstallBindings();
-        //TODO some stuff for platform
-    }
+#if UNITY_EDITOR || UNITY_STANDALONE
+        public override void InstallBindings()
+        {
+            base.InstallBindings();
+            //TODO some stuff for platform
+        }
 #endif
+    }
 }

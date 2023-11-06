@@ -1,13 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-public class BaseGameplayInputService : MonoBehaviour
+namespace Services.GameplayInput
 {
-    public event Action<Vector3> OnMove;
-    public event Action<Vector3> OnJump;
-    
-    protected void OnJumpPressed(Vector3 value)
+    public class BaseGameplayInputService : MonoBehaviour
     {
-        OnJump?.Invoke(value);
+        public event Action<Vector3> OnMove;
+        public event Action<Vector3> OnJump;
+    
+        protected void OnJumpPressed(Vector3 value)
+        {
+            OnJump?.Invoke(value);
+        }
     }
 }

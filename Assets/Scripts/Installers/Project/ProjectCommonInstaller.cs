@@ -1,5 +1,5 @@
-﻿using Data;
-using Data.Catalog;
+﻿using Data.Catalog;
+using Data.Proxy;
 using Data.User;
 using Services;
 using UnityEngine;

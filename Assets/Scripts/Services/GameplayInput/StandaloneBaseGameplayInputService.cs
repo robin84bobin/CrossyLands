@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using Input = UnityEngine.Input;
 
-public class StandaloneBaseGameplayInputService : BaseGameplayInputService
+namespace Services.GameplayInput
 {
-    private void Update()
+    public class StandaloneBaseGameplayInputService : BaseGameplayInputService
     {
-        if (Input.GetKey(KeyCode.Space))
+        private void Update()
         {
-            OnJumpPressed(Vector3.up);
+            if (Input.GetKey(KeyCode.Space))
+            {
+                OnJumpPressed(Vector3.up);
+            }
         }
-    }
 
     
+    }
 }

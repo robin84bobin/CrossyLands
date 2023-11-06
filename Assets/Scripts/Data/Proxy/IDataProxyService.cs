@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Data.Repository;
 using Services;
 
-namespace Data
+namespace Data.Proxy
 {
     public interface IDataProxyService
     {

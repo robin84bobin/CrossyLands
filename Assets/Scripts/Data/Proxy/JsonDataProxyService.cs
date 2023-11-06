@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
+using Data.Repository;
 using InternalNewtonsoft.Json.Linq;
 using Services;
 using UnityEngine;
 
-namespace Data
+namespace Data.Proxy
 {
     internal class JsonDataProxyService: IDataProxyService
     {

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.Proxy;
 using UnityEngine;
 
-namespace Data
+namespace Data.Repository
 {
     public class DataStorage<T> : IDataStorage where T : DataItem, new()
     {

@@ -1,3 +1,4 @@
+using Data.Proxy;
 using Data.Repository;
 using Services;
 

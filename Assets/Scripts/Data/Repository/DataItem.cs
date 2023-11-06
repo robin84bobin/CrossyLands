@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data
+namespace Data.Repository
 {
     /// <summary>
     /// base class to store some data item

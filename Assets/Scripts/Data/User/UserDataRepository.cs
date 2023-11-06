@@ -1,5 +1,6 @@
-using System.ComponentModel.Design;
 using Data.Catalog;
+using Data.Proxy;
+using Data.Repository;
 using Services;
 using UnityEngine;
 using Zenject;

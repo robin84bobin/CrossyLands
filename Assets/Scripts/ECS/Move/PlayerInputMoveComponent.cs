@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ECS
+namespace ECS.Components
 {
     [Serializable]
     public struct PlayerInputMoveComponent

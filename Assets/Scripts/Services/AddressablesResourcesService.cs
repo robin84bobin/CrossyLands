@@ -28,5 +28,11 @@ namespace Services
             return component;
         }
 
+        public async Task<GameObject> LoadPrefab(string path)
+        {
+            var handle = Addressables.LoadAssetAsync<GameObject>(path);
+            var gameObject =  await handle.Task;
+            return gameObject;
+        }
     }
 }

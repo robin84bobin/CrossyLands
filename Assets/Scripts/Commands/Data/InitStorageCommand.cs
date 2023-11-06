@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using Data;
+using Data.Proxy;
+using Data.Repository;
 using UnityEngine;
 
 namespace Commands.Data

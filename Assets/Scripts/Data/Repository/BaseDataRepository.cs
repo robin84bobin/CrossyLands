@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using Commands;
 using Commands.Data;
+using Data.Proxy;
 
 namespace Data.Repository
 {

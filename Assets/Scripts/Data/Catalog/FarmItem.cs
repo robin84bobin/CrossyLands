@@ -1,4 +1,6 @@
-namespace Data
+using Data.Repository;
+
+namespace Data.Catalog
 {
     public class FarmItem : DataItem
     {

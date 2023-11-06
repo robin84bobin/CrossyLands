@@ -1,4 +1,4 @@
-namespace Data
+namespace Data.Catalog
 {
     public interface ISellable
     {

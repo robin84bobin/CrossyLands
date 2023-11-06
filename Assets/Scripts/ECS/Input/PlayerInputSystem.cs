@@ -1,4 +1,6 @@
-﻿using Leopotam.Ecs;
+﻿using ECS.Components;
+using ECS.Components.Events;
+using Leopotam.Ecs;
 using UnityEngine;
 
 namespace ECS.Systems
@@ -7,6 +9,7 @@ namespace ECS.Systems
     {
         private EcsFilter<PlayerInputJumpComponent> _jumpFilter = null;
         private EcsFilter<PlayerInputMoveComponent> _inputFilter = null;
+        
         public void Run()
         {
             Move();

@@ -1,12 +1,13 @@
-﻿using Installers.Project;
-
-public class ProjectMobileInstaller : ProjectCommonInstaller
+﻿namespace Installers.Project
 {
-#if UNITY_ANDROID
-    public override void InstallBindings()
+    public class ProjectMobileInstaller : ProjectCommonInstaller
     {
-        base.InstallBindings();
-        //TODO some stuff for platform
-    }
+#if UNITY_ANDROID
+        public override void InstallBindings()
+        {
+            base.InstallBindings();
+            //TODO some stuff for platform
+        }
 #endif
+    }
 }
