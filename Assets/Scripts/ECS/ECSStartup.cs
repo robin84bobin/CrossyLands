@@ -31,8 +31,8 @@ namespace ECS
             _systems.Add(new GameInitSystem());
             _systems.Add(new PlayerSpawnSystem(_resourcesService));
             _systems.Add(new PlayerInputSystem());
-            _systems.Add(new PlayerMoveSystem());
             _systems.Add(new PlayerJumpSystem());
+            _systems.Add(new PlayerMoveSystem());
         }
 
         private void AddEvents()

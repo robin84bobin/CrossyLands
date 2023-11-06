@@ -26,7 +26,7 @@ namespace ECS.Systems
             {
                 ref var entity = ref _jumpFilter.GetEntity(i);
                 ref var jumpEvent = ref entity.Get<JumpEvent>();
-                jumpEvent.Value = 2f;
+                jumpEvent.Value = 0.05f;
             }
         }
 

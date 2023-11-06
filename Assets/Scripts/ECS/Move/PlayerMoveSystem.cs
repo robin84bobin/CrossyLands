@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using ECS.Components;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace ECS.Systems
             foreach (var index in _moveFilter)
             {
                 ref var moveComponent = ref _moveFilter.Get1(index);
-                moveComponent.Velocity = new Vector3(0, moveComponent.gravity, 0);
+                moveComponent.Velocity.y += moveComponent.gravity * 2f * Time.deltaTime;
             }
         }
 
