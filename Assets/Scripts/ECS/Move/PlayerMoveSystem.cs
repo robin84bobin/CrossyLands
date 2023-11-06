@@ -3,6 +3,7 @@ using System.Numerics;
 using ECS.Components;
 using Leopotam.Ecs;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 namespace ECS.Systems
 {
@@ -13,18 +14,8 @@ namespace ECS.Systems
     
         public void Run()
         {
-            ProcessGravity();
             ProcessInput();
             Move();
-        }
-
-        private void ProcessGravity()
-        {
-            foreach (var index in _moveFilter)
-            {
-                ref var moveComponent = ref _moveFilter.Get1(index);
-                moveComponent.Velocity.y += moveComponent.gravity * 2f * Time.deltaTime;
-            }
         }
 
         private void ProcessInput()
@@ -32,8 +23,10 @@ namespace ECS.Systems
             foreach (var index in _moveInputFilter)
             {
                 ref var moveComponent = ref _moveInputFilter.Get1(index);
-                var input = _moveInputFilter.Get2(index);
-                moveComponent.Velocity += input.Direction;
+                ref var input = ref _moveInputFilter.Get2(index);
+                moveComponent.Velocity += input.Direction * Time.deltaTime;
+                //reset input after use
+                input.Direction = Vector3.zero;
             }
         }
 
@@ -43,6 +36,8 @@ namespace ECS.Systems
             {
                 ref var moveComponent = ref _moveFilter.Get1(index);
                 moveComponent.characterController.Move(moveComponent.Velocity);
+                moveComponent.Velocity.x = 0;
+                moveComponent.Velocity.z = 0;
             }
         }
     }

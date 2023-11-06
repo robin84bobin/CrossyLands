@@ -1,5 +1,6 @@
 ﻿using ECS.Components;
 using ECS.Components.Events;
+using ECS.Gravity;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -7,13 +8,25 @@ namespace ECS.Systems
 {
     public class PlayerInputSystem : IEcsRunSystem
     {
-        private EcsFilter<PlayerInputJumpComponent> _jumpFilter = null;
-        private EcsFilter<PlayerInputMoveComponent> _inputFilter = null;
+        private EcsFilter<PlayerInputJumpComponent, GroundCheckComponent> _jumpFilter = null;
+        private EcsFilter<PlayerInputMoveComponent> _moveFilter = null;
         
         public void Run()
         {
             Move();
             Jump();
+        }
+
+        private void Move()
+        {
+            var x = Input.GetAxis("Horizontal");
+            var y = Input.GetAxis("Vertical");
+
+            foreach (var index in _moveFilter)
+            {
+                ref var inputHero = ref _moveFilter.Get1(index);
+                inputHero.Direction = new Vector3(x, y);
+            }
         }
 
         private void Jump()
@@ -24,21 +37,13 @@ namespace ECS.Systems
             
             foreach (var i in _jumpFilter)
             {
+                var groundCheck = _jumpFilter.Get2(i);
+                if (!groundCheck.IsGrounded)
+                    continue;
+                
                 ref var entity = ref _jumpFilter.GetEntity(i);
                 ref var jumpEvent = ref entity.Get<JumpEvent>();
-                jumpEvent.Value = 0.05f;
-            }
-        }
-
-        private void Move()
-        {
-            var x = Input.GetAxis("Horizontal");
-            var y = Input.GetAxis("Vertical");
-
-            foreach (var index in _inputFilter)
-            {
-                ref var inputHero = ref _inputFilter.Get1(index);
-                inputHero.Direction = new Vector3(x, y);
+                jumpEvent.Value = 0.01f;
             }
         }
     }

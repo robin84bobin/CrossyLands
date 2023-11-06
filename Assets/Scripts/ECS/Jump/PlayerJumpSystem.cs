@@ -15,7 +15,7 @@ namespace ECS.Systems
                 ref var jumpEvent = ref _jumpFilter.Get2(i);
                 ref var move = ref _jumpFilter.Get3(i);
 
-                move.Velocity.y += jumpEvent.Value;
+                move.Velocity.y = jumpEvent.Value;
             }
         }
     }

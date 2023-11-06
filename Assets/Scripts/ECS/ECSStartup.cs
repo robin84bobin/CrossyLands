@@ -1,4 +1,5 @@
 using ECS.Components.Events;
+using ECS.Gravity;
 using ECS.Systems;
 using Leopotam.Ecs;
 using Services;
@@ -31,6 +32,8 @@ namespace ECS
             _systems.Add(new GameInitSystem());
             _systems.Add(new PlayerSpawnSystem(_resourcesService));
             _systems.Add(new PlayerInputSystem());
+            _systems.Add(new GroundCheckSystem());
+            _systems.Add(new GravitySystem());
             _systems.Add(new PlayerJumpSystem());
             _systems.Add(new PlayerMoveSystem());
         }
