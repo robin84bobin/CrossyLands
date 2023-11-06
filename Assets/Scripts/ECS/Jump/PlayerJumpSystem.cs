@@ -12,11 +12,10 @@ namespace ECS.Systems
         {
             foreach (var i in _jumpFilter)
             {
-                ref var jumpComponent = ref _jumpFilter.Get1(i);
                 ref var jumpEvent = ref _jumpFilter.Get2(i);
                 ref var move = ref _jumpFilter.Get3(i);
 
-                move.Velocity.y = jumpEvent.Value;
+                move.Velocity.y += jumpEvent.Value;
             }
         }
     }

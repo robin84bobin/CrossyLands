@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
-    gravity: -1
+    gravity: -0.01
     characterController: {fileID: 6118898181205202128}
 --- !u!114 &-8205897398969417388
 MonoBehaviour:
