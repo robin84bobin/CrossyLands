@@ -2,5 +2,5 @@
 
 namespace ECS.Components.MonoProviders
 {
-    public class PlayerInputMoveProvider : MonoProvider<PlayerInputComponent>{}
+    public class PlayerInputMoveProvider : MonoProvider<InputMoveComponent>{}
 }

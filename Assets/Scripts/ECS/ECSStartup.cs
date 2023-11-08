@@ -34,10 +34,10 @@ namespace ECS
             _systems.ConvertScene();
             _systems.Add(new GameInitSystem());
             _systems.Add(new PlayerSpawnSystem(_resourcesService));
-            _systems.Add(new PlayerInputSystem(_inputService));
+            _systems.Add(new MoveInputSystem(_inputService));
             _systems.Add(new GroundCheckSystem());
             // _systems.Add(new GravityMoveSystem());
-            _systems.Add(new PlayerInputMoveSystem());
+            _systems.Add(new MoveSystem());
         }
 
         private void AddEvents()

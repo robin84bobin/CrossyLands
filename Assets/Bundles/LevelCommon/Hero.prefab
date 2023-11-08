@@ -164,6 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
+    moveStepValue: 1
+    moveStepDuration: 1
     gravity: 0.01
     transform: {fileID: 6064700912964422905}
 --- !u!114 &-8205897398969417388
@@ -178,9 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508bfb46ec343e348b946c3517660032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value:
-    Direction: {x: 0, y: 0, z: 0}
-    timeBlocked: 0
 --- !u!114 &7617663776777353572
 MonoBehaviour:
   m_ObjectHideFlags: 0
