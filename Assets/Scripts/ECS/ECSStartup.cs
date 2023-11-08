@@ -1,8 +1,10 @@
-using ECS.Components.Events;
 using ECS.Gravity;
+using ECS.Input;
+using ECS.Move;
 using ECS.Systems;
 using Leopotam.Ecs;
 using Services;
+using Services.GameplayInput;
 using UnityEngine;
 using Voody.UniLeo;
 using Zenject;
@@ -12,6 +14,7 @@ namespace ECS
     public class ECSStartup : MonoBehaviour
     {
         [Inject] private IResourcesService _resourcesService;
+        [Inject] private BaseGameplayInputService _inputService;
         private EcsWorld _world;
         private EcsSystems _systems;
 
@@ -31,16 +34,15 @@ namespace ECS
             _systems.ConvertScene();
             _systems.Add(new GameInitSystem());
             _systems.Add(new PlayerSpawnSystem(_resourcesService));
-            _systems.Add(new PlayerInputSystem());
+            _systems.Add(new PlayerInputSystem(_inputService));
             _systems.Add(new GroundCheckSystem());
-            _systems.Add(new GravitySystem());
-            _systems.Add(new PlayerJumpSystem());
-            _systems.Add(new PlayerMoveSystem());
+            // _systems.Add(new GravityMoveSystem());
+            _systems.Add(new PlayerInputMoveSystem());
         }
 
         private void AddEvents()
         {
-            _systems.OneFrame<JumpEvent>();
+            // _systems.OneFrame<JumpEvent>();
         }
 
         void Update()

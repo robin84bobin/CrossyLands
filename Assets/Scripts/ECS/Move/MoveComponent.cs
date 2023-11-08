@@ -7,7 +7,9 @@ namespace ECS.Components
     public struct MoveComponent
     {
         public float gravity;
-        public CharacterController characterController;
-        [NonSerialized] public Vector3 Velocity;
+        public Transform transform;
+        [NonSerialized] public Vector3 Destination;
+        [NonSerialized] public float startTime;
+        [NonSerialized] public float moveTime;
     }
 }

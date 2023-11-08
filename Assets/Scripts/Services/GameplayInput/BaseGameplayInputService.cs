@@ -12,5 +12,8 @@ namespace Services.GameplayInput
         {
             OnJump?.Invoke(value);
         }
+
+        public virtual Vector2 GetAxisValues() => Vector2.zero;
+        public virtual bool GetJump() => false;
     }
 }

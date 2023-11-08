@@ -1,50 +1,45 @@
 ﻿using ECS.Components;
-using ECS.Components.Events;
-using ECS.Gravity;
 using Leopotam.Ecs;
+using Services.GameplayInput;
 using UnityEngine;
 
-namespace ECS.Systems
+namespace ECS.Input
 {
     public class PlayerInputSystem : IEcsRunSystem
     {
-        private EcsFilter<PlayerInputJumpComponent, GroundCheckComponent> _jumpFilter = null;
-        private EcsFilter<PlayerInputMoveComponent> _moveFilter = null;
-        
+        private readonly BaseGameplayInputService _inputService;
+        private readonly EcsFilter<PlayerInputComponent> _moveFilter = null;
+
+        public PlayerInputSystem(BaseGameplayInputService inputService)
+        {
+            _inputService = inputService;
+        }
+
         public void Run()
         {
-            Move();
-            Jump();
-        }
-
-        private void Move()
-        {
-            var x = Input.GetAxis("Horizontal");
-            var y = Input.GetAxis("Vertical");
-
             foreach (var index in _moveFilter)
             {
-                ref var inputHero = ref _moveFilter.Get1(index);
-                inputHero.Direction = new Vector3(x, y);
+                ref var inputMoveComponent = ref _moveFilter.Get1(index);
+                if (inputMoveComponent.timeBlocked > 0)
+                {
+                    inputMoveComponent.timeBlocked -= Time.deltaTime;
+                    continue;
+                }
+                
+                ProcessMove(ref inputMoveComponent);
             }
         }
 
-        private void Jump()
+        private void ProcessMove(ref PlayerInputComponent playerInputComponent)
         {
-            var jump = Input.GetKeyDown(KeyCode.Space);
-            if (!jump)
+            var axis = Vector3.Normalize(_inputService.GetAxisValues());
+            if (axis.x == 0 && axis.y == 0) 
                 return;
-            
-            foreach (var i in _jumpFilter)
-            {
-                var groundCheck = _jumpFilter.Get2(i);
-                if (!groundCheck.IsGrounded)
-                    continue;
-                
-                ref var entity = ref _jumpFilter.GetEntity(i);
-                ref var jumpEvent = ref entity.Get<JumpEvent>();
-                jumpEvent.Value = 0.01f;
-            }
+
+            var direction = new Vector3(axis.x, 0, axis.y);
+            playerInputComponent.Direction = direction;
+            playerInputComponent.timeBlocked = 1;
         }
+
     }
 }

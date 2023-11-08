@@ -44,11 +44,11 @@ namespace Services
         }
 
 
-        private bool IsFileExist(string path_)
+        private bool IsFileExist(string path)
         {
-            bool exists = File.Exists(path_);
+            bool exists = File.Exists(path);
             if (!exists) {
-                Debug.LogWarning("FILE NOT FOUND: " + path_);
+                Debug.LogWarning("FILE NOT FOUND: " + path);
             }
 
             return exists;

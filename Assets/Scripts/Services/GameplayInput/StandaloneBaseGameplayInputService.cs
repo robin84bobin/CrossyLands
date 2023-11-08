@@ -13,6 +13,15 @@ namespace Services.GameplayInput
             }
         }
 
-    
+
+        public override Vector2 GetAxisValues()
+        {
+            return new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
+
+        public override bool GetJump()
+        {
+            return Input.GetKey(KeyCode.Space);
+        }
     }
 }

@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 3690809435733111680}
   - component: {fileID: 256088238839105257}
   - component: {fileID: 6118898181205202128}
+  - component: {fileID: 3712607107901465972}
   - component: {fileID: -2282198986795238608}
   - component: {fileID: -2952016219819675091}
   - component: {fileID: -8205897398969417388}
-  - component: {fileID: -3628512334626847409}
   - component: {fileID: 7617663776777353572}
-  - component: {fileID: 3712607107901465972}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -116,6 +115,29 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &3712607107901465972
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267805457675580180}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.57
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-2282198986795238608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,8 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
-    gravity: -0.01
-    characterController: {fileID: 6118898181205202128}
+    gravity: 0.01
+    transform: {fileID: 6064700912964422905}
 --- !u!114 &-8205897398969417388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,18 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Direction: {x: 0, y: 0, z: 0}
---- !u!114 &-3628512334626847409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5267805457675580180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3de037906e5ee74186f7b6749c9fd2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    timeBlocked: 0
 --- !u!114 &7617663776777353572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,26 +199,3 @@ MonoBehaviour:
       m_Bits: 8
     groundCheckSphere: {fileID: 6064700912964422905}
     groundDistance: 2.2
---- !u!136 &3712607107901465972
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5267805457675580180}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.57
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
