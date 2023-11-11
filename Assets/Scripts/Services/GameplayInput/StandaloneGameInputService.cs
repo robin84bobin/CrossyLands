@@ -1,19 +1,28 @@
 ﻿using UnityEngine;
-using Input = UnityEngine.Input;
 
 namespace Services.GameplayInput
 {
     public class StandaloneGameInputService : IGameInputService
     {
+        private readonly InputActions _inputActions;
+        private Vector2 _currentMoveVector;
+
+        public StandaloneGameInputService()
+        {
+            _inputActions = new InputActions();
+            _inputActions.Standalone.Enable();
+        }
 
         public Vector2 GetAxisValues()
         {
-            return new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            _currentMoveVector = _inputActions.Standalone.Move.ReadValue<Vector2>();
+            return _currentMoveVector;
         }
 
         public bool GetJump()
         {
-            return Input.GetKey(KeyCode.Space);
+            var readValue = _inputActions.Standalone.Jump.ReadValue<float>();
+            return readValue != 0f;
         }
     }
 }

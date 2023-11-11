@@ -24,6 +24,7 @@ namespace ECS.Input
                     continue;
                 
                 ProcessMoveInput(ref moveComponent);
+                ProcessJumpInput(ref moveComponent);
             }
         }
 
@@ -35,6 +36,14 @@ namespace ECS.Input
 
             var direction = new Vector3(axis.x, 0, axis.y);
             moveComponent.SetupMove(direction);
+        }
+
+        private void ProcessJumpInput(ref MoveComponent moveComponent)
+        {
+            if (_inputService.GetJump())
+            {
+                moveComponent.transform.Translate(Vector3.up);
+            }
         }
     }
 }
