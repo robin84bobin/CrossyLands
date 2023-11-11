@@ -7,10 +7,10 @@ namespace ECS.Input
 {
     public class MoveInputSystem : IEcsRunSystem
     {
-        private readonly BaseGameplayInputService _inputService;
+        private readonly IGameInputService _inputService;
         private readonly EcsFilter<InputMoveComponent, MoveComponent> _moveFilter = null;
 
-        public MoveInputSystem(BaseGameplayInputService inputService)
+        public MoveInputSystem(IGameInputService inputService)
         {
             _inputService = inputService;
         }

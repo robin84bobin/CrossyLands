@@ -10,15 +10,12 @@ namespace Installers.Gameplay
 
         public override void InstallBindings()
         {
-            InstantiateInput();
+            BindInput();
         }
 
-        private void InstantiateInput()
+        private void BindInput()
         {
-            var inputService =
-                Container.InstantiatePrefabForComponent<StandaloneBaseGameplayInputService>(inputServicePrefab, transform);
-
-            Container.Bind<BaseGameplayInputService>().FromComponentOn(inputService.gameObject).AsSingle();
+            Container.Bind<IGameInputService>().To<StandaloneGameInputService>().AsSingle();
         }
     }
 }

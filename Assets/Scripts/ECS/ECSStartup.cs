@@ -14,7 +14,7 @@ namespace ECS
     public class ECSStartup : MonoBehaviour
     {
         [Inject] private IResourcesService _resourcesService;
-        [Inject] private BaseGameplayInputService _inputService;
+        [Inject] private IGameInputService _inputService;
         private EcsWorld _world;
         private EcsSystems _systems;
 
