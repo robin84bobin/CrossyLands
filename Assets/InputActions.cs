@@ -114,14 +114,78 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Mobile"",
+            ""id"": ""3976aa5b-28ed-4531-acf4-9669aea743be"",
+            ""actions"": [
+                {
+                    ""name"": ""PrimaryTouchContact"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""cea3b85f-241f-4314-a524-98ce351bf3ef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrimaryTouchPosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""778274ed-3875-4631-a2d0-d42effd15a80"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""155fe7df-e485-4814-9069-00ac57a4abc3"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryTouchContact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""225873a4-8a0a-4a72-a297-0cfbd5aba646"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryTouchPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""New control scheme"",
+            ""bindingGroup"": ""New control scheme"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Touchscreen>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Standalone
         m_Standalone = asset.FindActionMap("Standalone", throwIfNotFound: true);
         m_Standalone_Move = m_Standalone.FindAction("Move", throwIfNotFound: true);
         m_Standalone_Jump = m_Standalone.FindAction("Jump", throwIfNotFound: true);
+        // Mobile
+        m_Mobile = asset.FindActionMap("Mobile", throwIfNotFound: true);
+        m_Mobile_PrimaryTouchContact = m_Mobile.FindAction("PrimaryTouchContact", throwIfNotFound: true);
+        m_Mobile_PrimaryTouchPosition = m_Mobile.FindAction("PrimaryTouchPosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -233,9 +297,77 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public StandaloneActions @Standalone => new StandaloneActions(this);
+
+    // Mobile
+    private readonly InputActionMap m_Mobile;
+    private List<IMobileActions> m_MobileActionsCallbackInterfaces = new List<IMobileActions>();
+    private readonly InputAction m_Mobile_PrimaryTouchContact;
+    private readonly InputAction m_Mobile_PrimaryTouchPosition;
+    public struct MobileActions
+    {
+        private @InputActions m_Wrapper;
+        public MobileActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PrimaryTouchContact => m_Wrapper.m_Mobile_PrimaryTouchContact;
+        public InputAction @PrimaryTouchPosition => m_Wrapper.m_Mobile_PrimaryTouchPosition;
+        public InputActionMap Get() { return m_Wrapper.m_Mobile; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MobileActions set) { return set.Get(); }
+        public void AddCallbacks(IMobileActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MobileActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MobileActionsCallbackInterfaces.Add(instance);
+            @PrimaryTouchContact.started += instance.OnPrimaryTouchContact;
+            @PrimaryTouchContact.performed += instance.OnPrimaryTouchContact;
+            @PrimaryTouchContact.canceled += instance.OnPrimaryTouchContact;
+            @PrimaryTouchPosition.started += instance.OnPrimaryTouchPosition;
+            @PrimaryTouchPosition.performed += instance.OnPrimaryTouchPosition;
+            @PrimaryTouchPosition.canceled += instance.OnPrimaryTouchPosition;
+        }
+
+        private void UnregisterCallbacks(IMobileActions instance)
+        {
+            @PrimaryTouchContact.started -= instance.OnPrimaryTouchContact;
+            @PrimaryTouchContact.performed -= instance.OnPrimaryTouchContact;
+            @PrimaryTouchContact.canceled -= instance.OnPrimaryTouchContact;
+            @PrimaryTouchPosition.started -= instance.OnPrimaryTouchPosition;
+            @PrimaryTouchPosition.performed -= instance.OnPrimaryTouchPosition;
+            @PrimaryTouchPosition.canceled -= instance.OnPrimaryTouchPosition;
+        }
+
+        public void RemoveCallbacks(IMobileActions instance)
+        {
+            if (m_Wrapper.m_MobileActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMobileActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MobileActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MobileActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MobileActions @Mobile => new MobileActions(this);
+    private int m_NewcontrolschemeSchemeIndex = -1;
+    public InputControlScheme NewcontrolschemeScheme
+    {
+        get
+        {
+            if (m_NewcontrolschemeSchemeIndex == -1) m_NewcontrolschemeSchemeIndex = asset.FindControlSchemeIndex("New control scheme");
+            return asset.controlSchemes[m_NewcontrolschemeSchemeIndex];
+        }
+    }
     public interface IStandaloneActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IMobileActions
+    {
+        void OnPrimaryTouchContact(InputAction.CallbackContext context);
+        void OnPrimaryTouchPosition(InputAction.CallbackContext context);
     }
 }

@@ -15,7 +15,8 @@ namespace Installers.Gameplay
 
         private void BindInput()
         {
-            Container.Bind<IGameInputService>().To<StandaloneGameInputService>().AsSingle();
+            Container.Bind<IGameInputService>().To<MobileGameInputService>().AsSingle();
+            // Container.Bind<IGameInputService>().To<StandaloneGameInputService>().AsSingle();
         }
     }
 }

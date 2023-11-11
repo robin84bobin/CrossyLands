@@ -24,13 +24,13 @@ namespace ECS.Input
                     continue;
                 
                 ProcessMoveInput(ref moveComponent);
-                ProcessJumpInput(ref moveComponent);
+                // ProcessJumpInput(ref moveComponent);
             }
         }
 
         private void ProcessMoveInput(ref MoveComponent moveComponent)
         {
-            var axis = _inputService.GetAxisValues();
+            var axis = _inputService.GetMoveDirection();
             if (axis.x == 0 && axis.y == 0) 
                 return;
 

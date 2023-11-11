@@ -4,7 +4,7 @@ namespace Services.GameplayInput
 {
     public interface IGameInputService
     {
-         Vector2 GetAxisValues();
+         Vector2 GetMoveDirection();
          bool GetJump();
     }
 }
