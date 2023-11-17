@@ -17,20 +17,21 @@ namespace ECS.Input
 
         public void Run()
         {
+            var axis = _inputService.GetMoveDirection();
+            
             foreach (var index in _moveFilter)
             {
                 ref var moveComponent = ref _moveFilter.Get2(index);
-                if (moveComponent.isMoving)
-                    continue;
-                
-                ProcessMoveInput(ref moveComponent);
-                // ProcessJumpInput(ref moveComponent);
+                ProcessMoveInput(ref moveComponent, axis);
             }
+
         }
 
-        private void ProcessMoveInput(ref MoveComponent moveComponent)
+        private void ProcessMoveInput(ref MoveComponent moveComponent, Vector2 axis)
         {
-            var axis = _inputService.GetMoveDirection();
+            if (moveComponent.isMoving)
+                return;
+            
             if (axis.x == 0 && axis.y == 0) 
                 return;
 
@@ -38,12 +39,5 @@ namespace ECS.Input
             moveComponent.SetupMove(direction);
         }
 
-        private void ProcessJumpInput(ref MoveComponent moveComponent)
-        {
-            if (_inputService.GetJump())
-            {
-                moveComponent.transform.Translate(Vector3.up);
-            }
-        }
     }
 }

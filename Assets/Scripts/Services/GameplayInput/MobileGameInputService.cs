@@ -9,7 +9,9 @@ namespace Services.GameplayInput
         private readonly InputActions _inputActions;
         private Vector2 _moveDirection;
         private float _startTouchTime;
+        private float _endTouchTime;
         private Vector2 _startTouchPosition;
+        private Vector2 _endTouchPosition;
 
         public MobileGameInputService()
         {
@@ -28,21 +30,32 @@ namespace Services.GameplayInput
 
         private void OnPrimaryTouchEnd(InputAction.CallbackContext context)
         {
-            if (Time.time - _startTouchTime > 1f)
-                return;
+            _endTouchTime = Time.time;
+            _endTouchPosition = _inputActions.Mobile.PrimaryTouchPosition.ReadValue<Vector2>();
+        }
 
-            var endTouchPosition = _inputActions.Mobile.PrimaryTouchPosition.ReadValue<Vector2>();
-            if (Vector2.Distance(endTouchPosition, _startTouchPosition) < 0.2f)
+        public void ReadInputValues()
+        {
+            _moveDirection = Vector2.zero;
+            
+            if (_endTouchTime - _startTouchTime > 1f)
                 return;
             
-            _moveDirection = endTouchPosition - _startTouchPosition;
+            if (Vector2.Distance(_endTouchPosition, _startTouchPosition) < 0.2f)
+                return;
+            
+            _moveDirection = _endTouchPosition - _startTouchPosition;
+
+            _startTouchTime = 0f;
+            _endTouchTime = 0f;
+            _startTouchPosition = Vector2.zero;
+            _endTouchPosition = Vector2.zero;
         }
 
         public Vector2 GetMoveDirection()
         {
-            Vector2 result = _moveDirection;
-            _moveDirection = Vector2.zero;
-            return result;
+            ReadInputValues();
+            return _moveDirection;
         }
 
         public bool GetJump()
@@ -53,6 +66,8 @@ namespace Services.GameplayInput
 
         public void Dispose()
         {
+            _inputActions.Mobile.PrimaryTouchContact.started -= OnPrimaryTouchStart;
+            _inputActions.Mobile.PrimaryTouchContact.canceled -= OnPrimaryTouchEnd;
             _inputActions?.Dispose();
         }
     }
