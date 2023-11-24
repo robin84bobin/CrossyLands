@@ -4,6 +4,7 @@ using ECS.Move;
 using ECS.Systems;
 using Leopotam.Ecs;
 using Services;
+using Services.GamePlay;
 using Services.GameplayInput;
 using UnityEngine;
 using Voody.UniLeo;
@@ -13,6 +14,7 @@ namespace ECS
 {
     public class ECSStartup : MonoBehaviour
     {
+        [Inject] private GameplayLevelService _gameplayLevelService;
         [Inject] private IResourcesService _resourcesService;
         [Inject] private IGameInputService _inputService;
         private EcsWorld _world;
@@ -33,7 +35,7 @@ namespace ECS
         {
             _systems.ConvertScene();
             _systems.Add(new GameInitSystem());
-            _systems.Add(new PlayerSpawnSystem(_resourcesService));
+            _systems.Add(new PlayerSpawnSystem(_resourcesService, _gameplayLevelService.GetHeroPrefabName));
             _systems.Add(new MoveInputSystem(_inputService));
             _systems.Add(new GroundCheckSystem());
             // _systems.Add(new GravityMoveSystem());

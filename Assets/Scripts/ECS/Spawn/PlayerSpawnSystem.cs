@@ -7,12 +7,14 @@ namespace ECS
     internal class PlayerSpawnSystem : IEcsRunSystem, IEcsPreInitSystem
     {
         private readonly IResourcesService _resourcesService;
-
-        private EcsFilter<SpawnHeroComponent> filter = null;
+        private readonly string _heroPrefabName;
         
-        public PlayerSpawnSystem(IResourcesService resourcesService)
+        private readonly EcsFilter<SpawnHeroComponent> _filter = null;
+        
+        public PlayerSpawnSystem(IResourcesService resourcesService, string heroPrefabName)
         {
             _resourcesService = resourcesService;
+            _heroPrefabName = heroPrefabName;
         }
 
         public void Run()
@@ -21,11 +23,12 @@ namespace ECS
 
         public async void PreInit()
         {
-            foreach (int i in filter)
+            foreach (int i in _filter)
             {
-                var spawnPointComponent = filter.Get1(i);
+                var spawnPointComponent = _filter.Get1(i);
 
-                var r = await _resourcesService.LoadPrefab("Hero");
+                
+                var r = await _resourcesService.LoadPrefab(_heroPrefabName);
                 Object.Instantiate(r, spawnPointComponent.Transform.position, Quaternion.identity, null);
             }
         }

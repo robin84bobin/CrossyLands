@@ -2,6 +2,7 @@
 using Data.Proxy;
 using Data.User;
 using Services;
+using Services.GamePlay;
 using UnityEngine;
 using Zenject;
 
@@ -16,6 +17,12 @@ namespace Installers.Project
             BindResourcesService();
             BindDataProxies();
             BindDataRepositories();
+            BindGameplayServices();
+        }
+
+        private void BindGameplayServices()
+        {
+            Container.Bind<GameplayLevelService>().AsSingle();
         }
 
         private void BindResourcesService()

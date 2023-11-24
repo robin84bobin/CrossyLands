@@ -10,28 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Duplicate Asset Isolation
+  m_Name: Level_3
   m_EditorClassIdentifier: 
-  m_GroupName: Duplicate Asset Isolation
-  m_GUID: 9461b716328b18f4da7750878d29c44e
+  m_GroupName: Level_3
+  m_GUID: e80827fe530f45d408c8cd44d404b3a7
   m_SerializeEntries:
-  - m_GUID: 31321ba15b8f8eb4c954353edc038b1d
-    m_Address: Lit
+  - m_GUID: 869b55c0dc2962d41a835b0eeb3c4b36
+    m_Address: Banana
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 933532a4fcc9baf4fa0491de14d08ed7
-    m_Address: Lit
+  - m_GUID: 9e6ba9458e1aa2249a08301c4d63bbf0
+    m_Address: Hero3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 36e335017ad71d54fbb10842863188ae
-    m_Address: FallbackShader
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e6e9a19c3678ded42a3bc431ebef7dbd
-    m_Address: FallbackError
+  - m_GUID: 45932978781f17249ae75fc71c881701
+    m_Address: Level 3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -39,5 +34,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: d9f35f9a7f56ed445a58dc1bc0b87b1a, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 2d73b1267ae6e0447aa179403ddcddf8, type: 2}
-    - {fileID: 11400000, guid: b0f99f40659359a4fbaf8d43300d794d, type: 2}
+    - {fileID: 11400000, guid: d9b469b1d98e8f44cb1ce131ee44c89a, type: 2}
+    - {fileID: 11400000, guid: d84365b72c7a2aa4eae9efe07dc18434, type: 2}
