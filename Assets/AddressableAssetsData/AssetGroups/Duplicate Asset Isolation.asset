@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: DefaultGroup
+  m_Name: Duplicate Asset Isolation
   m_EditorClassIdentifier: 
-  m_GroupName: DefaultGroup
+  m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 178248bb950cf604087a218a71480ff3
+  m_GUID: 9461b716328b18f4da7750878d29c44e
   m_SerializeEntries:
-  - m_GUID: 3bde927a7cbf49042b9cdedefbf77b60
-    m_Address: StartScene
+  - m_GUID: 31321ba15b8f8eb4c954353edc038b1d
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Lit.mat
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e1275cb2f8176d143a5cc82782992a10
-    m_Address: GameScene
+  - m_GUID: 933532a4fcc9baf4fa0491de14d08ed7
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 893cf33d1f2754849a9634c05338497e
-    m_Address: CatalogData
+  - m_GUID: 36e335017ad71d54fbb10842863188ae
+    m_Address: Packages/com.unity.render-pipelines.core/Runtime/RenderPipelineResources/FallbackShader.shader
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 99c9720ab356a0642a771bea13969a05
-    m_Address: BootScene
+  - m_GUID: e6e9a19c3678ded42a3bc431ebef7dbd
+    m_Address: Packages/com.unity.render-pipelines.universal/Shaders/Utils/FallbackError.shader
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -41,5 +41,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: d9f35f9a7f56ed445a58dc1bc0b87b1a, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 58695a352338cd840b668e369032e5e6, type: 2}
-    - {fileID: 11400000, guid: bac8e29d9394c5744a203fcbfcbe9710, type: 2}
+    - {fileID: 11400000, guid: 2d73b1267ae6e0447aa179403ddcddf8, type: 2}
+    - {fileID: 11400000, guid: b0f99f40659359a4fbaf8d43300d794d, type: 2}
