@@ -4,6 +4,6 @@ namespace Services.GameplayInput
 {
     public interface IGameInputService
     {
-         Vector2 GetMoveDirection();
+         Vector2 GetInputMoveDirection();
     }
 }

@@ -7,7 +7,7 @@ namespace Services.GameplayInput
     public class MobileGameInputService : IGameInputService, IDisposable
     {
         private readonly InputActions _inputActions;
-        private Vector2 _moveDirection;
+        private Vector2 _swipeDirection = new Vector2();
         private float _startTouchTime;
         private float _endTouchTime;
         private Vector2 _startTouchPosition;
@@ -34,28 +34,24 @@ namespace Services.GameplayInput
             _endTouchPosition = _inputActions.Mobile.PrimaryTouchPosition.ReadValue<Vector2>();
         }
 
-        public void ReadInputValues()
+        public Vector2 GetInputMoveDirection()
         {
-            _moveDirection = Vector2.zero;
+            _swipeDirection = Vector2.zero;
             
             if (_endTouchTime - _startTouchTime > 1f)
-                return;
-            
-            if (Vector2.Distance(_endTouchPosition, _startTouchPosition) < 0.2f)
-                return;
-            
-            _moveDirection = _endTouchPosition - _startTouchPosition;
+                return default;
 
+            if (Vector2.Distance(_endTouchPosition, _startTouchPosition) < 0.2f)
+                return default;
+
+            _swipeDirection = _endTouchPosition - _startTouchPosition;
+            
             _startTouchTime = 0f;
             _endTouchTime = 0f;
             _startTouchPosition = Vector2.zero;
             _endTouchPosition = Vector2.zero;
-        }
-
-        public Vector2 GetMoveDirection()
-        {
-            ReadInputValues();
-            return _moveDirection;
+            
+            return _swipeDirection;
         }
 
         public bool GetJump()

@@ -17,25 +17,25 @@ namespace ECS.Input
 
         public void Run()
         {
-            var axis = _inputService.GetMoveDirection();
+            var inputDirection = _inputService.GetInputMoveDirection();
             
             foreach (var index in _moveFilter)
             {
                 ref var moveComponent = ref _moveFilter.Get2(index);
-                ProcessMoveInput(ref moveComponent, axis);
+                ProcessMoveInput(ref moveComponent, inputDirection);
             }
 
         }
 
-        private void ProcessMoveInput(ref MoveComponent moveComponent, Vector2 axis)
+        private void ProcessMoveInput(ref MoveComponent moveComponent, Vector2 inputDirection)
         {
             if (moveComponent.isMoving)
                 return;
             
-            if (axis.x == 0 && axis.y == 0) 
+            if (inputDirection.x == 0 && inputDirection.y == 0) 
                 return;
 
-            var direction = new Vector3(axis.x, 0, axis.y);
+            var direction = new Vector3(inputDirection.x, 0, inputDirection.y);
             moveComponent.SetupMove(direction);
         }
 

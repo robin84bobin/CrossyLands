@@ -42,15 +42,16 @@ namespace ECS
             _systems.Add(new MoveSystem());
         }
 
+        public void Update()
+        {
+            _systems.Run();
+        }
+
         private void AddEvents()
         {
             // _systems.OneFrame<JumpEvent>();
         }
 
-        void Update()
-        {
-            _systems.Run();
-        }
 
         private void OnDestroy()
         {

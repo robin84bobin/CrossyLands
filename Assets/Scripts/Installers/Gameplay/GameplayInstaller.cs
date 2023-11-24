@@ -1,23 +1,32 @@
-﻿using Services.GamePlay;
+﻿using System;
 using Services.GameplayInput;
-using UnityEngine;
 using Zenject;
 
 namespace Installers.Gameplay
 {
     public class GameplayInstaller : MonoInstaller
     {
-        [SerializeField] private GameObject inputServicePrefab;
-
         public override void InstallBindings()
         {
-            BindInput();
+            BindPlatformInput();
         }
 
-        private void BindInput()
+#if UNITY_ANDROID || UNITY_IOS
+        
+        private void BindPlatformInput()
         {
-            Container.Bind<IGameInputService>().To<MobileGameInputService>().AsSingle();
-            // Container.Bind<IGameInputService>().To<StandaloneGameInputService>().AsSingle();
+            Container.Bind<IGameInputService>().To<MobileGameInputService>().AsCached();
+            Container.Bind<IDisposable>().To<MobileGameInputService>().AsCached();
         }
+        
+#elif UNITY_EDITOR || UNITY_STANDALONE
+
+        private void BindPlatformInput()
+        {
+            Container.Bind<IGameInputService>().To<StandaloneGameInputService>().AsSingle();
+        }
+        
+#endif
+
     }
 }
