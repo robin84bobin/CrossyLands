@@ -17,7 +17,7 @@ namespace ECS.Input
 
         public void Run()
         {
-            var inputDirection = _inputService.GetInputMoveDirection();
+            var inputDirection = _inputService.GetInputMoveDirection().ToRightAngleDirection();
             
             foreach (var index in _moveFilter)
             {
