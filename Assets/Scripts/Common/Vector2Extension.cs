@@ -11,18 +11,10 @@ namespace ECS.Input
             
             Vector2 normalValue = value.normalized;
             
-            if (normalValue.y >= 0.5f)
-                return Vector2.up;
-
-            if (normalValue.y < -0.5f)
-                return Vector2.down;
-
-            if (normalValue.x >= 0.5f)
-                return Vector2.right;
-
-            if (normalValue.x < -0.5f)
-                return Vector2.left;
-
+            if (normalValue.y >= 0.5f) return Vector2.up;
+            if (normalValue.y < -0.5f) return Vector2.down;
+            if (normalValue.x >= 0.5f) return Vector2.right;
+            if (normalValue.x < -0.5f) return Vector2.left;
             return Vector2.zero;
         }
     }
