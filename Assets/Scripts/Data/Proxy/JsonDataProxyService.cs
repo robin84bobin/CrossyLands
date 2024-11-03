@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Data.Proxy
 {
-    internal class JsonDataProxyService: IDataProxyService
+    public class JsonDataProxyService: IDataProxyService
     {
         private IResourcesService _resourcesService;
         
