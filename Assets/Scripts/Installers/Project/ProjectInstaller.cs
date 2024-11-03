@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Installers.Project
 {
-    public class ProjectCommonInstaller : MonoInstaller 
+    public class ProjectInstaller : MonoInstaller 
     {
         [SerializeField] private ProjectConfig _config;
 

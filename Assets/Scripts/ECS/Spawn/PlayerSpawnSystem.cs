@@ -26,7 +26,6 @@ namespace ECS
             foreach (int i in _filter)
             {
                 var spawnPointComponent = _filter.Get1(i);
-
                 
                 var r = await _resourcesService.LoadPrefab(_heroPrefabName);
                 Object.Instantiate(r, spawnPointComponent.Transform.position, Quaternion.identity, null);
