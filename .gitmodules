@@ -4,3 +4,6 @@
 [submodule "Assets/Plugins/UniLeo"]
 	path = Assets/Plugins/UniLeo
 	url = git@github.com:voody2506/UniLeo.git
+[submodule "Assets/Plugins/Core"]
+	path = Assets/Plugins/Core
+	url = https://github.com/robin84bobin/Core
