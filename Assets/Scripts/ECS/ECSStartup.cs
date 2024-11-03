@@ -4,8 +4,6 @@ using ECS.Gravity;
 using ECS.Input;
 using ECS.Move;
 using ECS.Spawn;
-using GameServices.GamePlay;
-using GameServices.GamePlay.GameplayInput;
 using Leopotam.Ecs;
 using UnityEngine;
 using Voody.UniLeo;

@@ -6,7 +6,6 @@ using Data.Catalog;
 using Data.User;
 using GameServices.GamePlay;
 using UnityEngine;
-using UnityEngine.Rendering;
 using Zenject;
 
 namespace Installers.Project
