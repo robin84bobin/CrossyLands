@@ -1,6 +1,6 @@
 using Voody.UniLeo;
 
-namespace ECS
+namespace ECS.Spawn
 {
     public class SpawnHeroMonoProvider : MonoProvider<SpawnHeroComponent>{}
 }

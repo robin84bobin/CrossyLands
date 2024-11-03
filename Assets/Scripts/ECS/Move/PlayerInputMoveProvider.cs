@@ -1,6 +1,6 @@
 ﻿using Voody.UniLeo;
 
-namespace ECS.Components.MonoProviders
+namespace ECS.Move
 {
     public class PlayerInputMoveProvider : MonoProvider<InputMoveComponent>{}
 }

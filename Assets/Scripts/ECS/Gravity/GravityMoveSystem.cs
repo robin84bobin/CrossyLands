@@ -1,4 +1,4 @@
-﻿using ECS.Components;
+﻿using ECS.Move;
 using Leopotam.Ecs;
 using UnityEngine;
 

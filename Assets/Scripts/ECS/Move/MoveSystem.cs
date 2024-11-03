@@ -1,5 +1,4 @@
-﻿using ECS.Components;
-using Leopotam.Ecs;
+﻿using Leopotam.Ecs;
 using UnityEngine;
 
 namespace ECS.Move

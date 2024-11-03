@@ -1,6 +1,8 @@
-﻿using ECS.Components;
+﻿using Core.Core;
+using Core.Core.Services;
+using ECS.Move;
+using GameServices.GamePlay.GameplayInput;
 using Leopotam.Ecs;
-using Services.GameplayInput;
 using UnityEngine;
 
 namespace ECS.Input

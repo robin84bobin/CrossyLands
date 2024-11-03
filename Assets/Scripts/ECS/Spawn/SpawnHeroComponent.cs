@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ECS
+namespace ECS.Spawn
 {
     [Serializable]
     public struct SpawnHeroComponent

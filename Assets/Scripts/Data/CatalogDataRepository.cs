@@ -1,6 +1,6 @@
-using Data.Proxy;
-using Data.Repository;
-using Services;
+using Core.Core.Data.Proxy;
+using Core.Core.Data.Repository;
+using Core.Core.Services.ResourceService;
 
 namespace Data.Catalog
 {

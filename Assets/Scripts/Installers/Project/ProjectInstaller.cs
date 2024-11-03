@@ -1,9 +1,12 @@
-﻿using Data.Catalog;
-using Data.Proxy;
+﻿using CommonServices;
+using Core.Core.Data.Proxy;
+using Core.Core.Services;
+using Core.Core.Services.ResourceService;
+using Data.Catalog;
 using Data.User;
-using Services;
-using Services.GamePlay;
+using GameServices.GamePlay;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Zenject;
 
 namespace Installers.Project
@@ -17,12 +20,14 @@ namespace Installers.Project
             BindResourcesService();
             BindDataProxies();
             BindDataRepositories();
-            BindGameplayServices();
+            BindServices();
+            
         }
 
-        private void BindGameplayServices()
+        private void BindServices()
         {
-            Container.Bind<GameplayLevelService>().AsSingle();
+            Container.Bind<ISceneService>().To<SceneService>().AsSingle();
+            Container.Bind<IGameplayLevelService>().To<GameplayLevelService>().AsSingle();
         }
 
         private void BindResourcesService()

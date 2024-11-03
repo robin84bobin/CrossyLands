@@ -1,5 +1,6 @@
 ﻿using System;
-using Services.GameplayInput;
+using Core.Core.Services;
+using GameServices.GamePlay.GameplayInput;
 using Zenject;
 
 namespace Installers.Gameplay

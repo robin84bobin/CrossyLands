@@ -1,4 +1,4 @@
-using Data.Repository;
+using Core.Core.Data.Repository;
 
 namespace Data.Catalog
 {

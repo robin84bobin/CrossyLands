@@ -1,9 +1,9 @@
-using Commands;
-using Commands.Startup;
-using Common;
+using CommonServices;
+using Core.Core.Commands;
+using Core.Core.Data.Commands;
+using Core.Core.Services.ResourceService;
 using Data.Catalog;
 using Data.User;
-using Services;
 using UnityEngine;
 using Zenject;
 

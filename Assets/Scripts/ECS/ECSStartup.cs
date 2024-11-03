@@ -1,11 +1,12 @@
+using Core.Core.Services;
+using Core.Core.Services.ResourceService;
 using ECS.Gravity;
 using ECS.Input;
 using ECS.Move;
-using ECS.Systems;
+using ECS.Spawn;
+using GameServices.GamePlay;
+using GameServices.GamePlay.GameplayInput;
 using Leopotam.Ecs;
-using Services;
-using Services.GamePlay;
-using Services.GameplayInput;
 using UnityEngine;
 using Voody.UniLeo;
 using Zenject;
@@ -14,7 +15,7 @@ namespace ECS
 {
     public class ECSStartup : MonoBehaviour
     {
-        [Inject] private GameplayLevelService _gameplayLevelService;
+        [Inject] private IGameplayLevelService _gameplayLevelService;
         [Inject] private IResourcesService _resourcesService;
         [Inject] private IGameInputService _inputService;
         private EcsWorld _world;

@@ -1,6 +1,6 @@
 ﻿using Leopotam.Ecs;
 
-namespace ECS.Systems
+namespace ECS
 {
     public class GameInitSystem : IEcsInitSystem
     {

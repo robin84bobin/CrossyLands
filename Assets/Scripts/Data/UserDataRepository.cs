@@ -1,13 +1,14 @@
+using Core.Core.Data.Proxy;
+using Core.Core.Data.Repository;
+using Core.Core.Data.User;
+using Core.Core.Services.ResourceService;
 using Data.Catalog;
-using Data.Proxy;
-using Data.Repository;
-using Services;
 using UnityEngine;
 using Zenject;
 
 namespace Data.User
 {
-    public class UserDataRepository : Repository.BaseDataRepository, IFixedTickable
+    public class UserDataRepository : BaseDataRepository, IFixedTickable
     {
         public const string CURRENCY = "currency";
         public const string SHOP = "shop";

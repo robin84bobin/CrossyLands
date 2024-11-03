@@ -1,8 +1,8 @@
-﻿using Leopotam.Ecs;
-using Services;
+﻿using Core.Core.Services.ResourceService;
+using Leopotam.Ecs;
 using UnityEngine;
 
-namespace ECS
+namespace ECS.Spawn
 {
     internal class PlayerSpawnSystem : IEcsRunSystem, IEcsPreInitSystem
     {
