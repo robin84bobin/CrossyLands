@@ -1,6 +1,4 @@
-using UI.Presenter;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
@@ -12,10 +10,10 @@ namespace View
         [SerializeField] private Button _startButton2;
         [SerializeField] private Button _startButton3;
         
-        private MainMenuPresenter _presenter;
+        private IMainMenuPresenter _presenter;
 
         [Inject]
-        public void Construct(MainMenuPresenter presenter)
+        public void Construct(IMainMenuPresenter presenter)
         {
             _presenter = presenter;
         }

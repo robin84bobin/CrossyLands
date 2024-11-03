@@ -2,7 +2,8 @@
     "name": "UIPresenter",
     "rootNamespace": "",
     "references": [
-        "GameServices"
+        "GameServices",
+        "UIView"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

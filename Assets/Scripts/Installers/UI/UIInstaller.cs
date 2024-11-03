@@ -1,5 +1,4 @@
 using UI.Presenter;
-using UnityEngine.Rendering;
 using View;
 using Zenject;
 
@@ -9,7 +8,7 @@ namespace Installers.UI
     {
         public override void InstallBindings()
         {
-            Container.Bind<MainMenuPresenter>().AsSingle();
+            Container.Bind<IMainMenuPresenter>().To<MainMenuPresenter>().AsCached();
         }
     }
 }
