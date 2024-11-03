@@ -2,9 +2,9 @@
     "name": "GameServices",
     "rootNamespace": "",
     "references": [
-        "GUID:a529b4420e79c0048ac66b95d30105e3",
         "GUID:571fa8573b990ae4f898972f4718e579",
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:6a452579e2f25e64a9ff46f8136b712d"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
