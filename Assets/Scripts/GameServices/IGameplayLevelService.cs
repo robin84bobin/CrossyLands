@@ -2,7 +2,7 @@
 {
     public interface IGameplayLevelService
     {
-        string GetHeroPrefabName { get; }
+        string HeroPrefabName { get; }
         void StartLevel(int levelId);
     }
 }

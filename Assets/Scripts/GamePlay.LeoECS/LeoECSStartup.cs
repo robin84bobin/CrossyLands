@@ -34,7 +34,7 @@ namespace GamePlay.LeoECS
         {
             _systems.ConvertScene();
             _systems.Add(new GameInitSystem());
-            _systems.Add(new PlayerSpawnSystem(_resourcesService, _gameplayLevelService.GetHeroPrefabName));
+            _systems.Add(new PlayerSpawnSystem(_resourcesService, _gameplayLevelService.HeroPrefabName));
             _systems.Add(new InputMoveSystem(_inputService));
             _systems.Add(new GroundCheckSystem());
             // _systems.Add(new GravityMoveSystem());

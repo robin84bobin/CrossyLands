@@ -7,7 +7,7 @@ namespace GameServices.GamePlay
         private readonly ISceneService _sceneService;
         
         private int _level;
-        public string GetHeroPrefabName => $"Hero{_level}";
+        public string HeroPrefabName => $"Hero{_level}";
 
         public GameplayLevelService(ISceneService sceneService)
         {

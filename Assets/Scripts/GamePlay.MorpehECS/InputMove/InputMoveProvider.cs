@@ -1,14 +1,11 @@
-using Scellecs.Morpeh;
+using Scellecs.Morpeh.Providers;
 using Unity.IL2CPP.CompilerServices;
 
-namespace ECS.Morpeh.Input
+namespace GamePlay.MorpehECS.InputMove
 {
-    [System.Serializable]
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    public struct MoveByInputComponent : IComponent
-    {
-        public bool IsActive;
+    public sealed class InputMoveProvider : MonoProvider<InputMoveComponent> {
     }
 }
