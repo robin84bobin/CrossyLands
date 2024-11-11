@@ -1,0 +1,20 @@
+{
+    "name": "Gameplay.MorpehECS",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6a452579e2f25e64a9ff46f8136b712d",
+        "GUID:9d0a8d0f51a832040a85243dcb0d6293",
+        "GUID:3377deebfb0acde45876d12c6e3d27cc",
+        "GUID:76aaf6ae431c0d7458029595e33f13b2",
+        "GUID:2468f075b35534dec93e1aa84a70df05"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,18 @@
+{
+    "name": "Gameplay.LeoECS",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6a452579e2f25e64a9ff46f8136b712d",
+        "GUID:656c2c43d3cfe4855bd40e058874b0be",
+        "GUID:9d0a8d0f51a832040a85243dcb0d6293"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
