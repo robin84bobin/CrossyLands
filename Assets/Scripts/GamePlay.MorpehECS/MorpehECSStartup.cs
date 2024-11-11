@@ -1,20 +1,20 @@
-﻿using System;
-using Core.Core.Services;
+﻿using Core.Core.Services;
 using Core.Core.Services.ResourceService;
 using GamePlay.MorpehECS.InputMove;
 using GamePlay.MorpehECS.Move;
 using GamePlay.MorpehECS.Spawn;
 using Scellecs.Morpeh;
+using Scellecs.Morpeh.Systems;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 using Zenject;
 
-namespace ECS.Morpeh
+namespace GamePlay.MorpehECS
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    public class MorpehECSStartup : MonoBehaviour
+    public class MorpehECSStartup : BaseInstaller
     {
         [Inject] private IGameplayLevelService _gameplayLevelService;
         [Inject] private IResourcesService _resourcesService;
@@ -24,19 +24,23 @@ namespace ECS.Morpeh
         private SpawnHeroSystem _spawnHeroSystem;
         private InputMoveSystem _inputMoveSystem;
         private MoveSystem _moveSystem;
+        private IInitializer _initializer;
 
         private void Awake()
         {
             _spawnHeroSystem = new SpawnHeroSystem(_resourcesService, _gameplayLevelService.HeroPrefabName);
             _inputMoveSystem = new InputMoveSystem(_inputService);
             _moveSystem = new MoveSystem();
+
+            _initializer = new MockInitializer();
         }
 
-        void OnEnable() {
+        protected override void OnEnable() {
             if (World.Default != null) {
                 _group = World.Default.CreateSystemsGroup();
 
-                // _group.AddInitializer(_initializer);
+                _initializer.World = World.Default;
+                _group.AddInitializer(_initializer);
 
                 _group.AddSystem(_spawnHeroSystem);
                 _group.AddSystem(_inputMoveSystem);
@@ -46,10 +50,10 @@ namespace ECS.Morpeh
             }
         }
 
-        protected void OnDisable() {
+        protected override void OnDisable() {
             if (World.Default != null) { 
                 
-                //_group.RemoveInitializer(initializer);
+                _group.RemoveInitializer(_initializer);
 
                 _group.RemoveSystem(_spawnHeroSystem);
                 _group.RemoveSystem(_inputMoveSystem);
@@ -60,9 +64,12 @@ namespace ECS.Morpeh
             _group = null;
         }
 
-        void Update()
+        /*void Update()
         {
-            World.Default?.Update(Time.deltaTime);
+            if (_group != null && World.Default != null)
+            {
+                World.Default.Update(Time.deltaTime);
+            }
         }
 
         void FixedUpdate()
@@ -72,11 +79,12 @@ namespace ECS.Morpeh
 
         void LateUpdate()
         {
-            if (World.Default != null)
+            if (_group != null && World.Default != null)
             {
                 World.Default.LateUpdate(Time.deltaTime);
                 World.Default.CleanupUpdate(Time.deltaTime);
+                World.Default.Commit();
             }
-        }
+        }*/
     }
 }

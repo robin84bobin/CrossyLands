@@ -18,6 +18,9 @@ namespace GamePlay.MorpehECS.Move
 
         public void OnUpdate(float deltaTime)
         {
+            if (_filter.IsEmpty())
+                return;
+            
             foreach (var entity in _filter)
             {
                 ref var moveComponent = ref entity.GetComponent<MoveComponent>();

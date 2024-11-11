@@ -54,8 +54,8 @@ namespace GamePlay.LeoECS
 
         private void OnDestroy()
         {
-            _systems.Destroy();
-            _world.Destroy();
+            _systems?.Destroy();
+            _world?.Destroy();
         }
     }
 }

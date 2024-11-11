@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Core.Core.Services.ResourceService;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
@@ -16,14 +18,28 @@ namespace GamePlay.MorpehECS.Spawn
         private readonly string _heroPrefabName;
         private Filter _filter;
 
-
+        private List<Vector3> spawnPositions = new List<Vector3>();
         public SpawnHeroSystem(IResourcesService resourcesService, string heroPrefabName)
         {
             _resourcesService = resourcesService;
             _heroPrefabName = heroPrefabName;
         }
 
-        public async void OnAwake()
+        public void OnAwake()
+        {
+            
+        }
+
+        private async void SpawnHero()
+        {
+            var position = spawnPositions[0];
+            spawnPositions.Clear();
+            
+            var t = await _resourcesService.LoadPrefab(_heroPrefabName);
+            Object.Instantiate(t, position, Quaternion.identity, null);
+        }
+
+        public void OnUpdate(float deltaTime)
         {
             _filter = World.Filter.With<SpawnHeroComponent>().Build();
         
@@ -31,13 +47,14 @@ namespace GamePlay.MorpehECS.Spawn
             {
                 var spawnPointComponent = entity.GetComponent<SpawnHeroComponent>();
                 
-                var prefab = await _resourcesService.LoadPrefab(_heroPrefabName);
-                Object.Instantiate(prefab, spawnPointComponent.Transform.position, Quaternion.identity, null);
-            }
-        }
+                var position = spawnPointComponent.Transform.position;
+                spawnPositions.Add(position);
 
-        public void OnUpdate(float deltaTime)
-        {
+                entity.RemoveComponent<SpawnHeroComponent>();
+            }
+            
+            if (spawnPositions.Count > 0)
+                SpawnHero();
         }
 
         public void Dispose()

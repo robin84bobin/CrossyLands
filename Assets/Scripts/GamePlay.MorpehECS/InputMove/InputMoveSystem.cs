@@ -30,6 +30,9 @@ namespace GamePlay.MorpehECS.InputMove
         public World World { get; set; }
 
         public void OnUpdate(float deltaTime) {
+            if (_filter.IsEmpty())
+                return;
+            
             var inputDirection = _inputService.GetInputMoveDirection();
             
             foreach (var entity in _filter)
