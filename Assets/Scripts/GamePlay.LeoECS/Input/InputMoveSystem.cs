@@ -38,6 +38,8 @@ namespace GamePlay.LeoECS.Input
 
             var direction = new Vector3(inputDirection.x, 0, inputDirection.y);
             movementComponent.SetupMove(direction);
+            
+            Debug.Log($"{this} : Process Move Input : direction = {direction}");
         }
 
     }

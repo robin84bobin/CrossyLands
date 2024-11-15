@@ -13,7 +13,7 @@ namespace GamePlay.MorpehECS.InputMove
     {
         private readonly IGameInputService _inputService;
         private Filter _filter;
-    
+
         public InputMoveSystem(IGameInputService inputService)
         {
             _inputService = inputService;
@@ -52,6 +52,8 @@ namespace GamePlay.MorpehECS.InputMove
 
             var direction = new Vector3(inputDirection.x, 0, inputDirection.y);
             movementComponent.SetupMove(direction);
+
+            Debug.Log($"Process Move Input : direction = {direction}");
         }
 
         public void Dispose()

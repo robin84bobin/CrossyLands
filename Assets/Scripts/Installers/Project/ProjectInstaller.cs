@@ -27,6 +27,7 @@ namespace Installers.Project
         {
             Container.Bind<ISceneService>().To<SceneService>().AsSingle();
             Container.Bind<IGameplayLevelService>().To<GameplayLevelService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LogService>().AsSingle().NonLazy();
         }
 
         private void BindResourcesService()
